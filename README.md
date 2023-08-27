@@ -237,11 +237,19 @@ O arquivo ```rsa_02.txt``` havia os valores de C, E, e N, e para descriptografar
 ## Arquivo Compactado (10)
 ### Descrição
 
+O meu Deus, como faço para conseguir ler o meu arquivo, já que esqueci a senha? Quem pode me ajudar?
+
 ### Arquivos anexados
 
 ### Flag
 
+ALQ{s3nha_qu3brad@}
+
 ### Solução detalhada
+
+Basicamente este desafio consistia em quebrar a senha do zip, e pegar a flag.
+
+<img src="images/arquivocompactado.png">
 
 ## Uma Simples Análise (10)
 ### Descrição
