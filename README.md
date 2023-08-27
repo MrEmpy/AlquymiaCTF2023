@@ -86,14 +86,14 @@ Aplicação PHP com endpoint que permite utilização Arbitrária de Classes e F
 
 Primeiramente, ao acessar unhide.app é possível observar que um código php está sendo executado ao realizar POST requests na pagina.
 
-<img src="../images/Pasted image 20230822154123.png">
+<img src="images/Pasted image 20230822154123.png">
 
 O código PHP é vulnerável na medida em que permite que um atacante malicioso chame alguma classe com função nociva e cause danos e / ou exfiltre dados da aplicação.
 
 Dessa forma, esses dados estão sendo acessados via json, analise o seguinte request
 
 
-<img src="../images/Pasted image 20230822154210.png">
+<img src="images/Pasted image 20230822154210.png">
 
 Na imagem é utilizado a classe DOMDocument, por meio dela é possível fazer chamadas com a função load() que renderiza xml ao passar uma url como argumento.
 
@@ -122,6 +122,6 @@ E o conteudo de xpl.dtd é
 O qual usa o php para ler o arquivo `/var/www/html/.htaccess` , que contém a flag.
 
 
-<img src="../images/Pasted image 20230822154617.png">
+<img src="images/Pasted image 20230822154617.png">
 
-<img src="../images/Pasted image 20230822154625.png">
+<img src="images/Pasted image 20230822154625.png">
