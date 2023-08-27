@@ -178,19 +178,6 @@ ALQ{PHP_1nt3rn4ls_F0r_Fun_4nd_Pr0f1t}
 
 ### Solução detalhada
 
-# Boot2Root
-
-## UnHide (300)
-### Descrição
-
-### Arquivos anexados
-
-### Flag
-
-### Solução detalhada
-
-# Cripto
-
 ## Senha Perdida (50)
 ### Descrição
 
