@@ -75,3 +75,12 @@
     * [A Animação (100)](#a-animação-100)
     * [O lado oculto da lua (100)](#o-lado-oculto-da-lua-100)
     * [Arte (150)](#arte-150)
+
+# UnHide (300)
+## Descrição
+
+## Arquivos anexados
+
+## Flag
+
+## Solução detalhada
