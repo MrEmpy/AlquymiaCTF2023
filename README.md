@@ -126,6 +126,11 @@ O qual usa o php para ler o arquivo `/var/www/html/.htaccess` , que contém a fl
 
 <img src="images/Pasted image 20230822154625.png">
 
+### Flag
+```
+ALQ{PHP_1nt3rn4ls_For_Fun_4nd_Pr0f1t}
+```
+
 # Cripto
 
 ## Cripto 001 (10)
