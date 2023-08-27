@@ -486,11 +486,37 @@ E obtemos a flag.
 ## External (100)
 ### Descrição
 
-### Arquivos anexados
-
-### Flag
-
 ### Solução detalhada
+
+<img src="images/Pasted image 20230827121828.png">
+
+Ná pagina principal, existe o botão Contact.
+Clicando nele, chegamos a pagina contact.php
+
+<img src="images/Pasted image 20230827121905.png">
+
+<img src="images/Pasted image 20230827122103.png">
+Ao interceptar a request, percebe-se que está sendo usado XML. Nesse contexto, o backend está renderizando os dados enviados pelo cliente usando XML sem nenhum tipo de proteção.
+
+Nesse caso, é evidente o possível ataque de XXE, o qual explora esse tipo de função para atingir Local File Read ou SSRF.
+
+Enviando o request, o nome é retornado, então é possível usar o nome para refletir um conteúdo do sistema ( Local File Read )
+
+
+<img src="images/Pasted image 20230827122217.png">
+
+Exploração:
+
+<img src="images/Pasted image 20230827122342.png">
+
+Payload usado:
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE replace [<!ENTITY ent SYSTEM "file:///flag.txt"> ]>
+<contact><first_name>&ent;</first_name><last_name>test</last_name><email>test@gmail.com</email><message>testando</message></contact>
+```
+
+Flag: ALQ{XML_3xt3rn4L_3nt1ty_Att4ck_}
 
 ## Mico (100)
 ### Descrição
