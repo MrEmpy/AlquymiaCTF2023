@@ -121,7 +121,6 @@ E o conteudo de xpl.dtd é
 
 O qual usa o php para ler o arquivo `/var/www/html/.htaccess` , que contém a flag.
 
-
 <img src="images/Pasted image 20230822154617.png">
 
 <img src="images/Pasted image 20230822154625.png">
@@ -351,56 +350,138 @@ ALQ{PHP_1nt3rn4ls_F0r_Fun_4nd_Pr0f1t}
 ## Navi GPS (10)
 ### Descrição
 
-### Arquivos anexados
-
-### Flag
-
 ### Solução detalhada
+
+Na aplicação, percebe-se que há a utilização do parametro 'q' para chamar arquivos php no systema.
+
+<img src="images/Pasted image 20230822154905.png">
+
+Dessa maneira, é vulneravél a LFI:
+
+<img src="images/Pasted image 20230822154933.png">
 
 ## Ship (10)
 ### Descrição
 
-### Arquivos anexados
-
-### Flag
-
 ### Solução detalhada
+Reside na aplicação o endpoint de login
+
+<img src="images/Pasted image 20230822155111.png">
+
+Após análise do código do front end, é achado o arquivo /assets/js/login.js sendo usado.
+
+Lendo esse arquivo, encontram-se credenciais expostas as quais permitem que o atacante acesse o painel
+
+<img src="images/Pasted image 20230822155159.png">
+
+<img src="images/Pasted image 20230822155219.png">
 
 ## Safe URL (25)
 ### Descrição
 
-### Arquivos anexados
-
-### Flag
-
 ### Solução detalhada
+
+Aplicação roda um endpoint que provavelmente é vulnerável a SSRF.
+
+<img src="images/Pasted image 20230822155258.png">
+
+
+Antes de testar pelo ssrf, o código fonte da aplicação mostra algo interessante, um arquivo config.php.
+
+<img src="images/Pasted image 20230822155418.png">
+
+Assim, podemos testar por meio do SSRF e chamar http://127.0.0.1/config.php
+<img src="images/Pasted image 20230822155523.png">
+
+E assim obtemos a flag
 
 ## Solutions (25)
 ### Descrição
 
-### Arquivos anexados
-
-### Flag
-
 ### Solução detalhada
+
+Nesse cenário, identifica-se a tecnologia ansible sendo usada por meio de uploads sem nenhuma restrição ou filtro, o mesmo pode causar execução remota de comandos na aplicação.
+
+<img src="images/Pasted image 20230822155913.png">
+
+
+Usando o seguinte yaml
+```yaml
+- hosts: localhost
+  tasks:
+    - name: RShell2
+      shell: bash -c 'cat /flag.txt >> /var/www/html/index2.html'
+```
+Podemos pegar a flag criando uma nova index no servidor, e depois ler ela
+
+1. Envie o arquivo para a aplicação
+2. Execute-o
+3. Acesse index2.html
+
+
+<img src="images/Pasted image 20230822160126.png">
+
+
+<img src="images/Pasted image 20230822160140.png">
+
+Flag - ALQ{D3v0ops_4ns1ble_pl4yb00k_Rc3}
 
 ## Developer (50)
 ### Descrição
 
-### Arquivos anexados
-
-### Flag
-
 ### Solução detalhada
+
+Observa-se um painel de login na aplicação, que, ao testar, bypassamos o login que é vulnerável a SQL Injection com o payload: ' or 1 -- -
+
+<img src="images/Pasted image 20230822160343.png">
+
+
+<img src="images/Pasted image 20230822160251.png">
+
+
+Na pagina settings, iremos abusar da função de File Upload para executar o ataque Unrestricted File upload, permitindo-nos colocar uma web shell no servidor que ira executar comandos.
+
+<img src="images/Pasted image 20230822161455.png">
+
+
+Crie um arquivo com o seguinte conteudo
+```php
+<?php echo system($_GET['rce']);?>
+```
+
+Acesse-o pelo endpoint /uploads/
+
+<img src="images/Pasted image 20230822161305.png">
+
+Flag - ALQ{P0UC4VULNPR4MU1TOC0D3}
 
 ## MDK (50)
 ### Descrição
 
-### Arquivos anexados
-
-### Flag
-
 ### Solução detalhada
+
+Ao entrar na pagina, identificamos uma pagina de login e register
+
+<img src="images/Pasted image 20230827093404.png">
+
+
+Ao logar, a pagina exibida mostra algumas funções,<img src="images/Pasted image 20230827093501.png">
+
+A função All tools retorna Access Denied, o que nos faz perceber que existe alguma Authenticação que cuida de premium users, que portanto pode ser explorada.
+<img src="images/Pasted image 20230827093624.png">Retornando a página, analisando os cookies, identifica-se o uso de jwt, assim, decido jogar ele no site jwt.io
+
+<img src="images/Pasted image 20230827093819.png">
+
+E a tal categoria premium está setada para false,
+Usando o cyberchef, iremos alterar esse valor para true
+
+<img src="images/Pasted image 20230827113357.png">
+
+Depois, acesse a página novamente
+
+<img src="images/Pasted image 20230827113425.png">
+
+E obtemos a flag.
 
 ## External (100)
 ### Descrição
@@ -414,29 +495,109 @@ ALQ{PHP_1nt3rn4ls_F0r_Fun_4nd_Pr0f1t}
 ## Mico (100)
 ### Descrição
 
-### Arquivos anexados
-
-### Flag
-
 ### Solução detalhada
+
+<img src="images/Pasted image 20230827094017.png">
+
+Neste CTF MICO, na aplicação existem varios endpoins .html, e uma aparente forma de login e sign up que no entanto não funciona.
+
+Depois de analisar e passar pelas paginas, não foi encontrado nada. Assim, ao não encontrar nada, meu time teve a ideia de começar a analisar o que já teria passado pelo site, então, fizemos o uso de crawlers.
+
+Crawler:
+```
+https://ctf-mico.alquymia.com.br/
+https://ctf-mico.alquymia.com.br/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js
+https://ctf-mico.alquymia.com.br/contact.html
+https://ctf-mico.alquymia.com.br/css/bootstrap.css
+https://ctf-mico.alquymia.com.br/css/font-awesome.min.css
+https://ctf-mico.alquymia.com.br/css/responsive.css
+https://ctf-mico.alquymia.com.br/css/style.css
+https://ctf-mico.alquymia.com.br/doctor.html
+https://ctf-mico.alquymia.com.br/favicon.ico
+https://ctf-mico.alquymia.com.br/fonts/fontawesome-webfont.woff2?v=4.7.0
+https://ctf-mico.alquymia.com.br/images/about-img.jpg
+https://ctf-mico.alquymia.com.br/images/contact-img.jpg
+https://ctf-mico.alquymia.com.br/images/dots.png
+https://ctf-mico.alquymia.com.br/images/logo.png
+https://ctf-mico.alquymia.com.br/images/next.png
+https://ctf-mico.alquymia.com.br/images/post1.jpg
+https://ctf-mico.alquymia.com.br/images/post2.jpg
+https://ctf-mico.alquymia.com.br/images/post3.jpg
+https://ctf-mico.alquymia.com.br/images/post4.png
+https://ctf-mico.alquymia.com.br/images/prev.png
+https://ctf-mico.alquymia.com.br/images/slider-img.jpg
+https://ctf-mico.alquymia.com.br/images/t1.png
+https://ctf-mico.alquymia.com.br/images/t2.png
+https://ctf-mico.alquymia.com.br/images/t3.png
+https://ctf-mico.alquymia.com.br/images/t4.png
+https://ctf-mico.alquymia.com.br/images/team1.jpg
+https://ctf-mico.alquymia.com.br/images/team2.jpg
+https://ctf-mico.alquymia.com.br/images/team3.jpg
+https://ctf-mico.alquymia.com.br/images/treatment-side-img.jpg
+https://ctf-mico.alquymia.com.br/js/bootstrap.js
+https://ctf-mico.alquymia.com.br/js/custom.js
+https://ctf-mico.alquymia.com.br/js/jquery-3.4.1.min.js
+https://ctf-mico.alquymia.com.br/robots.txt
+https://ctf-mico.alquymia.com.br/testimonial.html
+```
+
+Nele, verificamos a existencia de https://ctf-mico.alquymia.com.br/robots.txt, que ao entrar na url, dizia 404. Nesse contexto, começamos a pensar o por que não estaria ali, que nos levou ao seguinte pensamento: "Será que algums arquivos / folders foram escondidos?", assim passamos a usar o wayback machine para verificar.
+
+Ao usar o wayback machine para verificar a existência de robots.txt, obtivemos uma resposta muito interessante:
+
+<img src="images/Pasted image 20230827094540.png">
+
+<img src="images/Pasted image 20230827094558.png">
+
+Foi comprovada a existência de um folder com nome db-0898343234/
+
+ao acessar ele, é retornado forbidden, mas ao entrar em db-0898343234/flag.txt, encontramos a flag.
+
+<img src="images/Pasted image 20230827094701.png">
+
+Flag: ALQ{hidden_wayback}
 
 ## Notes (150)
 ### Descrição
 
-### Arquivos anexados
-
-### Flag
-
 ### Solução detalhada
+
+<img src="images/Pasted image 20230827094924.png">
+
+Primeira página da aplicação, mostra Sign in e Sign up.
+Dessa maneira, vamos criar uma conta e logar.
+
+<img src="images/Pasted image 20230827095117.png">
+
+A aplicação roda algo como um sistema de notas, o qual utiliza ID's para chamar notes salvadas.
+
+<img src="images/Pasted image 20230827095155.png">
+
+Assim, torna-se evidente uma possível exploração de IDOR, visto que existe a utilização de ID's para identificação de objetos no servidor sem nenhum tipo de filtro ou proteção.
+
+Ao percorrer os ID's possíveis, encontra-se a flag no ID 35
+
+<img src="images/Pasted image 20230827095417.png">
+
+Flag: ALQ{1ns3cur3_d1r3cT_0bj3cT_R3f3r3nc3s}
 
 ## Techport (150)
 ### Descrição
 
-### Arquivos anexados
-
-### Flag
-
 ### Solução detalhada
+
+<img src="images/Pasted image 20230827095608.png">
+
+Primeira página da aplicação, mostra algums lorem ipsum, e um botão de dashboard no canto superior direito.
+
+Ao clicar, é obtido um erro:
+<img src="images/Pasted image 20230827095641.png">
+
+A Aplicação web está utilizando de um parametro chamado auth para setar se o usuário está autenticado ou não.
+
+Assim, executamos o ataque trocando o valor para true, para dizer que estamos autenticados para o servidor web.
+
+<img src="images/Pasted image 20230827095752.png">
 
 ## Defense and Attack (200)
 ### Descrição
@@ -674,11 +835,37 @@ ALQ{PHP_1nt3rn4ls_F0r_Fun_4nd_Pr0f1t}
 ## Fake Story (50)
 ### Descrição
 
-### Arquivos anexados
-
-### Flag
+<img src="images/Pasted image 20230827100005.png">
 
 ### Solução detalhada
+
+É nos dada uma imagem para analisar, primeiramente, rodo o TweakPNG para verificar
+
+<img src="images/Pasted image 20230827101530.png">
+
+Vários erros aparecem, depois de muita busca, concertando o IHDR e tentando concertar os IDAT's na mão, percebi que na verdade era super simples, o problema residia no tamanho da imagem.
+
+Usando o próprio TweakPNG, troque o tamanho da imagem para 1024x1024.
+
+<img src="images/Pasted image 20230827101634.png">
+
+Depois disso, Salve a imagem e a abra denovo,
+
+E olha só, obtemos a imagem original concertada.
+Analisando atentamente, aparentemente tem um qrcode escondido na imagem.
+<img src="images/Pasted image 20230827101736.png">
+
+Agora com a imagem concertada, usaremos o StegSolve para tentar pegar o qrcode.
+
+<img src="images/Pasted image 20230827102153.png">
+
+Use a setinha no canto inferior, e boom
+
+<img src="images/Pasted image 20230827102320.png">
+
+<img src="images/Pasted image 20230827102437.png">
+
+Flag: https://ALQ{imagem_0cult@}
 
 ## Na Deepweb 2 (50)
 ### Descrição
