@@ -125,3 +125,610 @@ O qual usa o php para ler o arquivo `/var/www/html/.htaccess` , que contém a fl
 <img src="images/Pasted image 20230822154617.png">
 
 <img src="images/Pasted image 20230822154625.png">
+
+# Cripto
+
+## Cripto 001 (10)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+## RSA 001 (10)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+## Presente de Aniversário (25)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+## RSA 002 (25)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+## Enigma (50)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+# Boot2Root
+
+## UnHide (300)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+# Cripto
+
+## Senha Perdida (50)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+## Mensagem Codificada (100)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+## Receita de Bolo (100)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+# Forense
+
+## Arquivo Compactado (10)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+## Uma Simples Análise (10)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+## Break the Hash (25)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+## Um ataque ao banco (25)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+## Validação de Dados (25)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+## Backdoor (50)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+## Escovando Bits de Rede (50)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+## Qual o conteúdo? (50)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+## Investigação (100)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+## Vazamento de Informações (100)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+# Lógica
+
+## Sequência (10)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+## Sequência de Collatz (10)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+## Rotas (50)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+# Mini Gamer
+
+## Adivinha (10)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+## Pokedex (50)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+# Mini Web
+
+## Navi GPS (10)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+## Ship (10)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+## Safe URL (25)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+## Solutions (25)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+## Developer (50)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+## MDK (50)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+## External (100)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+## Mico (100)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+## Notes (150)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+## Techport (150)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+## Defense and Attack (200)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+# Osint
+
+## Informações de um arquivo! (10)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+## Rastreio de IP (10)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+## Dispositivo Antigo (25)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+## Encontre a fotógrafa (25)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+## Hidden Flag (50)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+## Investigação de Voo (50)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+## A melhor rua para um gato! (100)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+# Outros
+
+## Look_Find_Replace (10)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+## Looping (10)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+## As mãozinhas (25)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+## Não é IPv4 (25)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+## O Banco Alq (50)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+## O código obscuro (50)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+## Roubo ao Museu (50)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+## Onion Services (100)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+## Publicidade de Limpeza (100)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+# Pwn
+
+## Pwn01 (10)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+## Pwn02 (10)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+## Pwn03 (25)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+## Oculto.exe (50)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+## Pwn04 (50)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+# Stego
+
+## Descoberta Histórica (10)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+## Quase Igual (10)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+## Vaso de decoração (25)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+## Fake Story (50)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+## Na Deepweb 2 (50)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+## Tinta Invisível (50)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+## A Animação (100)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+## O lado oculto da lua (100)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
+
+## Arte (150)
+### Descrição
+
+### Arquivos anexados
+
+### Flag
+
+### Solução detalhada
