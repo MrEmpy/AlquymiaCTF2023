@@ -271,12 +271,115 @@ ALQ{PHP_1nt3rn4ls_F0r_Fun_4nd_Pr0f1t}
 
 ## Qual o conteúdo? (50)
 ### Descrição
+Um pendrive foi catalogado e feito uma imagem do seu conteúdo e disponibilizado para você. Também foi achado um arquivo com uma possível chave de recuperação do pendrive no computador do suspeito.
+
+[Link para download](https://drive.google.com/drive/folders/1YsVshTD4ubztsWktBgjzxRCHfYinM0F9?usp=sharing)
+
+Use suas habilidades forenses para descobrir o conteúdo do pendrive e indicar qual o nome do arquivo suspeito que foi encontrado a flag?
+
+Identifique o arquivo adicionando **ALQ{nome_do_arquivo.ext}** para pontuar.
 
 ### Arquivos anexados
 
-### Flag
+recover.TXT
+```
+Chave de recuperação de Criptografia de Unidade de Disco BitLocker 
 
+Para verificar se esta é a chave de recuperação correta, compare o início do identificador a seguir com o valor do identificador exibido no computador.
+
+Identificador:
+
+	3164EECD-FD52-468C-8E60-DD1E6B79B7DD
+
+Se o identificador acima corresponder ao que é exibido no computador, use a chave a seguir para desbloquear a unidade.
+
+Chave de Recuperação:
+
+	241802-225181-211574-115874-304095-169257-617353-52xxxx
+
+Se o identificador acima não corresponder ao que é exibido no computador, significa que esta não é a chave correta para desbloquear a unidade.
+Tente usar outra chave de recuperação ou consulte https://go.microsoft.com/fwlink/?LinkID=260589 para obter assistência.
+```
+### Flag
+```
+ALQ{main.cfg}
+```
 ### Solução detalhada
+Começamos montando a imagem VHD do pendrive em um sistema operacional Windows.
+
+<img src="images/Pasted image 20230827153352.png">
+
+<img src="images/Pasted image 20230827154128.png">
+
+<img src="images/Pasted image 20230827154327.png">
+
+<img src="images/Pasted image 20230827154402.png">
+
+A única informação que tínhamos era a chave de recuperação, que estava faltando os últimos 4 dígitos finais.
+
+Analisando o arquivo ```recover.TXT```, percebemos a falta dos 4 últimos dígitos da chave de recuperação BitLocker. Geramos um código Batch com a ajuda do ChatGPT para fazer um ataque de força bruta para descobrir os 4 dígitos finais da chave de recuperação.
+
+Código Batch para ataque de força bruta na chave de recuperação BitLocker:
+```
+@echo off
+setlocal enabledelayedexpansion
+
+set "base_recovery_password=241802-225181-211574-115874-304095-169257-617353-52"
+set "last_digits=0000"
+
+:loop
+if %last_digits% leq 9999 (
+    set "full_recovery_password=%base_recovery_password%%last_digits%"
+    echo Trying: %full_recovery_password%
+    
+    manage-bde -unlock D: -RecoveryPassword !full_recovery_password!
+    
+    set /a "last_digits+=1"
+    goto loop
+)
+
+echo All combinations tried.
+pause
+```
+
+Por ser um script incompleto, tivemos que procurar no output quais eram os últimos 4 dígitos, que eram ```4634```.
+
+Chave de recuperação BitLocker completa:
+```
+241802-225181-211574-115874-304095-169257-617353-524634
+```
+
+<img src="images/Pasted image 20230827154744.png">
+
+<img src="images/Pasted image 20230827154813.png">
+
+Com a partição desbloqueada, verificamos os arquivos presentes.
+
+<img src="images/Pasted image 20230827154915.png">
+
+Posteriormente ao encontrar a falsa flag, decidimos verificar a partição mais a fundo, fazendo uma investigação forensic utilizando a ferramenta conhecida como Autopsy.
+
+<img src="images/Pasted image 20230827155214.png">
+
+<img src="images/Pasted image 20230827155316.png">
+
+Começamos a observa a data de criação e modificação dos arquivos da partição, e descobrimos que a data de modificação e criação do arquivo ```flag.txt``` era diferente, ele foi modificado 30 segundos depois de ser criado.
+
+<img src="images/Pasted image 20230827155719.png">
+
+Clicamos em "File Created" para analisarmos o que foi modificado nesse horário. Encontramos 2 arquivos modificados.
+
+<img src="images/Pasted image 20230827155831.png">
+
+Ao observar o conteúdo de ```/grub/main.cfg```, encontramos alguns valores estranhos.
+
+<img src="images/Pasted image 20230827155932.png">
+
+Copiamos o valor e colamos na ferramenta CyberChef, que rapidamente detectou a cifra.
+
+<img src="images/Pasted image 20230827160051.png">
+
+Então a flag final era ```ALQ{main.cfg}```.
 
 ## Investigação (100)
 ### Descrição
