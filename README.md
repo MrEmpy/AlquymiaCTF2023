@@ -76,11 +76,13 @@
     * [O lado oculto da lua (100)](#o-lado-oculto-da-lua-100)
     * [Arte (150)](#arte-150)
 
-# UnHide (300)
-## Descrição
+# Boot2Root
 
-## Arquivos anexados
+## UnHide (300)
+### Descrição
 
-## Flag
+### Arquivos anexados
 
-## Solução detalhada
+### Flag
+
+### Solução detalhada
