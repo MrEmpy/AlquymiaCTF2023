@@ -987,13 +987,30 @@ Assim, executamos o ataque trocando o valor para true, para dizer que estamos au
 ### Solução detalhada
 
 ## A melhor rua para um gato! (100)
-### Descrição
+### Fiquei sabendo por uma amiga Thayse, que existe um canto onde os gatos se sentem super felizes, ficam sempre miando, mas infelizmente não conseguir achar. Só sei que a rua fica no Raleigh, NC, USA. Pontue com o nome da rua dentro da flag ALQ{nome-da-rua-igual-ao-google}
+
+### OBS: O nome da rua é separado por - 
+### OBS1: O nome é conforme está no Google.
 
 ### Arquivos anexados
 
-### Flag
+A melhor rua para um gato!
+
+### ALQ{Mial-St}
 
 ### Solução detalhada
+
+ O proprio enunciado dessa challenge nos deu uma pista, sobre como achar essa tal rua.
+
+ <img src="images/miau.png">
+
+ Procurando pela Raleigh, NC, USA no google maps, e adicionando miau, podemos ver a seguinte rua.
+
+ <img src="images/fmiau.png">
+
+ Agora ao clicarmos naquele endereço no google maps, podemos ver uma rua chamada Miaul St, e essa é a nossa flag.
+
+ <img src="images/mial.png">
 
 # Outros
 
@@ -1468,13 +1485,23 @@ Flag: https://ALQ{imagem_0cult@}
 ### Solução detalhada
 
 ## O lado oculto da lua (100)
-### Descrição
+### Cernan: Whooooooooooooo. Young: Você também ouviu aquele som de assobio? Cernan: Sim. Soa como – você sabe, música do tipo espaço sideral. Young: Eu me pergunto o que é.
 
-### Arquivos anexados
+### Transcrição da NASA
 
-### Flag
+### ALQ{stegonaut@}
 
 ### Solução detalhada
+
+Essa challenge consistia em procurar no google sobre o lado oculto da lua (missão), e descobrir em qual apollo ela fez parte que é a apollo10, que seria a key.
+
+Existe um site online de stego em audio chamado "stegonaut", e nela podemos colocar a key e extrair a flag.
+
+<img src="images/oculto.png">
+<img src="images/glua.png">
+<img src="images/stegonaut.png">
+<img src="images/steg.png">
+<img src="images/flagaudio.png">
 
 ## Arte (150)
 ### Descrição
