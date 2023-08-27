@@ -280,8 +280,30 @@ O arquivo ```rsa_02.txt``` havia os valores de C, E, e N, e para descriptografar
 ### Solução detalhada
 
 ## Backdoor (50)
-### Descrição
+### A maquina foi violadada e possivelmente o atacatante adicionou um backdoor. Especifique qual o arquivo que foi modificado para criar o acesso persistente e adicione o nome do arquivo dentro da flag:
 
+### IP: 140.82.12.60 User: ubuntu Senha: D9LnPTi2z4xVJefD
+
+Ao entrar no ssh, podemos usar a mesma senha do usuario ubuntu para se tornar root.
+
+Após isso, ao ir no /root, poderiamos ver o linpeas.sh e o pspy64 (isso foi colocado propositalmente na máquina).
+
+Ao rodar linpeas, voce verá que existe um arquivo chamado "/usr/include/type.h"
+
+<img src="images/img.png">
+
+Ao visualizar esse arquivo, podemos ver a senha do usuário ubuntu, e a senha do usuário root.
+
+<img src="images/img2.png">
+
+Pesquisando por "type.h" "pam" backdoor, chegamos a um repositorio no github, no qual o author cria uma ferramenta pra backdoor chamada de Pam Backdoor.
+
+<img src="images/img3.png">
+
+<img src="images/img4.png">
+
+Flag: ALQ{pam_unix.so}
+ 
 ### Arquivos anexados
 
 ### Flag
