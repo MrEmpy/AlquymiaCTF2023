@@ -903,6 +903,7 @@ Assim, executamos o ataque trocando o valor para true, para dizer que estamos au
 Atenção, falou o **Arkham** a policia local, roubaram um quadro de arte e deixaram apenas uma carta com códigos bem estranhos.
 
 <img src="images/Pasted image 20230827150604.png">
+
 ### Arquivos anexados
 carta.txt
 
