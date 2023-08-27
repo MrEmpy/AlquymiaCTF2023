@@ -145,7 +145,7 @@ ALQ{PHP_1nt3rn4ls_F0r_Fun_4nd_Pr0f1t}
 ### Descrição
 Arkham incentiva você a aprender sobre RSA. Com os dados do arquivo, pegue a flag.
 ### Arquivos anexados
-rsa_001.txt
+rsa_01.txt
 ```
 c = 68861979362313937217341109449187942472677489431259064594664393481393538163263609558838135514001241240414455123424967933524103912542708764016834442464998331552578544296768041973861
 
@@ -158,7 +158,7 @@ n = 1216209617318044190040211433685327227636687602356999895731518021444182487051
 ALQ{br1nc4ndo_c0m_RSA_01}
 ```
 ### Solução detalhada
-O arquivo ```rsa_001.txt``` havia os valores de C, E, e N, e para descriptografar a mensagem, usamos o site [Dcode](https://www.dcode.fr/rsa-cipher) e preenchemos os campos com as informações recebidas.
+O arquivo ```rsa_01.txt``` havia os valores de C, E, e N, e para descriptografar a mensagem, usamos o site [Dcode](https://www.dcode.fr/rsa-cipher) e preenchemos os campos com as informações recebidas.
 
 <img src="images/Pasted image 20230827161654.png">
 
@@ -173,12 +173,28 @@ O arquivo ```rsa_001.txt``` havia os valores de C, E, e N, e para descriptografa
 
 ## RSA 002 (25)
 ### Descrição
-
+Arkham perguntou se aprendeu mais sobre RSA. Um novo arquivo foi dado, pegue a flag.
 ### Arquivos anexados
+rsa_02.txt
+```
+c = 48511084925420183526614667750002314553245557087216359040164380168157417205838054818182432397825164639931743581979319934170597819562239990100288549990558302029912888160607214
 
+e = 65537
+
+n = 81498020757970999609067174109320139979405492813078153599363977189249525322740350714279156100679701512700773830282784597802936563570271837144481924930802287893627198892230683
+```
 ### Flag
-
+```
+ALQ{RSA_m4is_c0mpl3xo_02}
+```
 ### Solução detalhada
+O arquivo ```rsa_02.txt``` havia os valores de C, E, e N, e para descriptografar a mensagem, usamos a ferramenta **RsaCtfTool** para resolver o desafio usando o seguinte comando:
+
+```
+1. `python3 ./RsaCtfTool.py -n 81498020757970999609067174109320139979405492813078153599363977189249525322740350714279156100679701512700773830282784597802936563570271837144481924930802287893627198892230683 -e 65537 --uncipher 48511084925420183526614667750002314553245557087216359040164380168157417205838054818182432397825164639931743581979319934170597819562239990100288549990558302029912888160607214`
+```
+
+<img src="images/Pasted image 20230827163351.png">
 
 ## Enigma (50)
 ### Descrição
