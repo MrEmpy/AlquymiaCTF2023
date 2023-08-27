@@ -786,30 +786,198 @@ Assim, executamos o ataque trocando o valor para true, para dizer que estamos au
 
 ## Pwn01 (10)
 ### Descrição
+nc 45.63.104.42 2331
 
 ### Arquivos anexados
+pwn01.c
+```
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+  
+char buf[32];
+  
+int main()
+{
+        int fd;
+        int len = 0;
+        int num;
+        scanf("%d", &num);
+        fd = num - 0xcafe;
+        len = read(fd, buf, 32);
+        if(!strcmp("ALQUYMIA\n", buf))
+        {
+                printf("Parabens, pegue sua flag: ");
+                printf("ALQ{?}\n");
+        }
+        return 0;
+  
+}
+```
 
 ### Flag
-
+```
+ALQ{f1l3_d3script0r_654}
+```
 ### Solução detalhada
+Ao analisar o código C, podemos observar a presença da função ```scanf``` onde permite o usuário a preencher um campo com algum número inteiro.
+```
+scanf("%d", &num);
+```
+Na linha seguinte, o valor da variável ```fd``` será ```num - 0xcafe```, essa variável será usada no primeiro argumento da próxima função, chamada ```read```.
+
+Estrutura da função read:
+```
+ssize_t read(int fd, void buf[.count], size_t count);
+```
+
+A imagem a seguir mostra algumas informações sobre file descriptor:
+
+<img src="images/Pasted image 20230827122505.png">
+
+Com base nessa analise, precisamos fazer com que o valor da variável ```fd``` seja igual a 0, que interpretado pelo binário, será o "Standard Input", conhecido como "stdin".
+
+```
+0 = X - 0xcafe
+```
+
+Podemos usar a linguagem de programação Python para descobrirmos o número inteiro por trás de ```0xcafe```.
+```
+$ python3 -c "print(0xcafe)"
+51966
+```
+
+Agora que temos o número, conseguiremos resolver a simples conta de matemática:
+```
+0 = X - 0xcafe
+0 = X - 51966
+0 = 51966 - 51966
+```
+
+A próxima linha do código usa a função strcmp para comparar se o usuário preencheu o campo com a palavra "ALQUYMIA".
+```
+if(!strcmp("ALQUYMIA\n", buf))
+```
+
+Agora o que precisamos fazer é se conectar com o servidor e enviar o número para que seja interpretado como file descriptor stdin e enviar a palavra "ALQUYMIA" para retornar a flag:
+
+<img src="images/Pasted image 20230827131846.png">
 
 ## Pwn02 (10)
 ### Descrição
+nc 45.63.104.42 3442
 
 ### Arquivos anexados
+pwn02.c
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+        long int passw;
+        long int passw_ = 0x9999dead9999;
+        scanf("%ld", &passw);
+        if(passw == passw_)
+        {
+                printf("Parabens, pegue sua flag: ");
+                printf("ALQ{?}\n");
+        }
+        return 0;
+}
+```
 
 ### Flag
-
+```
+ALQ{3ntend3ndo_hex4d3cima1s_3}
+```
 ### Solução detalhada
+Analisando o código C, percebemos que há uma variável inteiro longo chamado "passw_" com o valor "0x9999dead9999". Na linha seguinte, existe a função "scanf" onde irá armazenar um valor inteiro longo que o usuário enviar. Posteriormente esses dois valores será comparados, e se for iguais, a flag será retornada.
+
+O valor da variável "passw_" lembra um valor hexadecimal, portanto, podemos usar a linguagem de programação Python para decodificar esse valor.
+
+```
+python3 -c "print(0x9999dead9999)"
+168886144965017
+```
+
+Agora precisamos apenas se conectar ao servidor e enviar o valor decodificado.
+
+<img src="Pasted image 20230827131818.png">
 
 ## Pwn03 (25)
 ### Descrição
+nc 45.63.104.42 7213
 
 ### Arquivos anexados
-
+pwn03
 ### Flag
-
+```
+ALQ{b4sic_r3verse_21}
+```
 ### Solução detalhada
+Para esse desafio, foi usado a ferramenta de engenharia reversa Ghidra para obter o código da ```int main()``` e foram feitos algumas modificações para obter um melhor entendimento sobre o código do binário:
+
+```
+
+int main(void)
+
+{
+  int result;
+  size_t tamanhoUserInput;
+  char userinput [34];
+  char valorParaComparar [13];
+  char local_19;
+  undefined4 uStack_18;
+  undefined3 uStack_14;
+  undefined5 uStack_11;
+  int i;
+  
+  local_19 = 'C';
+  uStack_18 = 0x5443534e;
+  uStack_14 = 0x434a4d;
+  uStack_11 = 0x393535334f;
+  fgets(userinput,32,stdin);
+  tamanhoUserInput = strcspn(userinput,"\n");
+  userinput[tamanhoUserInput] = '\0';
+  for (i = 0; i < 13; i = i + 1) {
+    valorParaComparar[i] = (&local_19)[i] + -2;
+  }
+  local_19 = '\0';
+  result = strcmp(userinput,valorParaComparar);
+  if (result == 0) {
+    puts("Pegue sua flag: ALQ{?}");
+  }
+  else {
+    puts("Errouuuuuu!!");
+  }
+  return 0;
+}
+```
+
+Observando as variáveis, encontrados alguns valores dentro de ```local_19```, ```uStack_18```, ```uStack_14```, e ```uStack_11```. Para decifrar os valores de ```uStack_1*```, usamos a ferramenta CyberChef seguindo a seguinte receita:
+
+<img src="Pasted image 20230827130558.png">
+
+Valores:
+```
+0x5443534e
+0x434a4d
+0x393535334f
+```
+
+Após decodificar e reverter os valores, o resultado foi ```NSCTMJCO3559```, porém precisava adicionar a letra "C" no início do valor, o que resultou em ```CNSCTMJCO3559```.
+
+Analisando o seguinte comportamento do binário, observamos que ele pegava cada letra e número da variável ```local_19``` (que seria ```CNSCTMJCO3559```) e voltava duas casas atrás, ou seja, C = A, N = L, e S = Q.
+```
+for (i = 0; i < 13; i = i + 1) {
+    valorParaComparar[i] = (&local_19)[i] + -2;
+}
+```
+
+Observando esse comportamento, remodelamos o valor de ```CNSCTMJCO3559``` para ```ALQARKHAM1337```. Com esse valor, conectamos ao servidor e enviamos ele.
+
+<img src="Pasted image 20230827131735.png">
 
 ## Oculto.exe (50)
 ### Descrição
