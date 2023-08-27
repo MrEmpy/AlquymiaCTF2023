@@ -128,7 +128,7 @@ O qual usa o php para ler o arquivo `/var/www/html/.htaccess` , que contém a fl
 
 ### Flag
 ```
-ALQ{PHP_1nt3rn4ls_For_Fun_4nd_Pr0f1t}
+ALQ{PHP_1nt3rn4ls_F0r_Fun_4nd_Pr0f1t}
 ```
 
 # Cripto
