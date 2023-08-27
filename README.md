@@ -1030,7 +1030,7 @@ Que por final virou ```DOT~6q{hujdqg3brb3fxowr}```.
 
 Seguindo a regra de voltar três casas e ajustando algumas caracteres, o resultado final foi igual a ```ALQ{3nxergand0_o_0culto}```.
 
-## Oculto.exe (50)
+## Pwn04 (50)
 ### Descrição
 nc 45.63.104.42 4553
 
