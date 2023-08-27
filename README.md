@@ -1030,14 +1030,43 @@ Que por final virou ```DOT~6q{hujdqg3brb3fxowr}```.
 
 Seguindo a regra de voltar três casas e ajustando algumas caracteres, o resultado final foi igual a ```ALQ{3nxergand0_o_0culto}```.
 
-## Pwn04 (50)
+## Oculto.exe (50)
 ### Descrição
+nc 45.63.104.42 4553
 
 ### Arquivos anexados
+programa.py
 
+```
+senha = input("")
+
+if senha == numero: # a senha é composta por apenas numeros
+    print "Pegue sua flag: ALQ{?}"
+else:
+    print "Errouuuu!!!!"
+```
 ### Flag
-
+```
+ALQ{3val_c0m_python_2}
+```
 ### Solução detalhada
+Ao analisar o código Python, a principio não parece ter alguma vulnerabilidade, mas na versão 2 do Python, a função ```input``` era considerada perigosa por ser igualmente a função ```eval```. Por esse motivo muitos códigos Python 2 usavam a função ```raw_input``` ao invés de ```input```.
+
+Pesquisando mais afundo sobre a fraqueza, é possível encontrar payloads que podem ser usados para explorar essa falha. Utilizamos o seguinte payload para detectar:
+
+```
+__import__("os").system("whoami")
+```
+
+Nos conectamos ao servidor e enviamos.
+
+<img src="images/Pasted image 20230827135821.png">
+
+<img src="images/Pasted image 20230827135846.png">
+
+A flag foi encontrada no caminho ```/srv/pwn05/flag.txt```.
+
+<img src="images/Pasted image 20230827135940.png">
 
 # Stego
 
