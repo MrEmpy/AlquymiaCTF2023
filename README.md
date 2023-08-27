@@ -263,11 +263,21 @@ Basicamente este desafio consistia em quebrar a senha do zip, e pegar a flag.
 ## Break the Hash (25)
 ### Descrição
 
-### Arquivos anexados
+Aconteceu alguma coisa na hora de copiar a hash que não consigo mais quebra-la.
+
+48bb6e862e54f2a795ffc4e541caed4dk
+
+Adicione o resultado dentro da flag ALQ{senha-quebrada}
 
 ### Flag
 
+ALQ{easy}
+
 ### Solução detalhada
+
+A hash md5 estava com um char a mais, que seria o "k", removendo esse "k", e utilizando o decrypt md5 do dcode.fr, teremos a flag.
+
+<img src="images/breakthehash.png">
 
 ## Um ataque ao banco (25)
 ### Descrição
