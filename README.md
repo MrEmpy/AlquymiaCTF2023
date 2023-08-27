@@ -900,12 +900,23 @@ Assim, executamos o ataque trocando o valor para true, para dizer que estamos au
 
 ## Roubo ao Museu (50)
 ### Descrição
+Atenção, falou o **Arkham** a policia local, roubaram um quadro de arte e deixaram apenas uma carta com códigos bem estranhos.
 
+<img src="images/Pasted image 20230827150604.png">
 ### Arquivos anexados
+carta.txt
 
+```
+D'`_@?K\~5k92xwvR-?+=M_^nJ7#"h~DCA@@b=_;)yrqpotm3qpoQPlkd*bg`e^]#aC_X|\>=YXWPOs65KJOHlL.JIHG@dDCB$@?>=<5Y3876/.3,P0po'&+$#(!E%$dc!x>|{z\xwp6tVrkjoh.fNjc)gfH%cbaZYX|\>=YXQuUTMRQJnHMLKDhHGFEDCB;_"!7[|{9870Tut,+0)M-,+$#G!~D$#zy~wv<tsxqpo5sUkpih.lkjLKa'edFEa`_X|\>=YXWPOsSR43ImM/EDCgAF?>=a;@98=<;4X8xw/43,P0)o'&J$#(!~D|B"!x}|u;yxZvo5Vlqpih.fN+iKJ`ed]b[!_X]VzZ<Rv9ONSRQJIm0/KJCBAeE>&<`#?8\<5{3Wxw/43,P0/.-m%*#G'&%$#"baw=uzyxqpo5sUkpohg-kjLKgfed]#DZYX|V[ZYXWPOs65QJnNG/EiCBGF?cCB;:?8\<5{3W10T4ts10)Mnm%*#"Fg}|{Aba}v{ts9Zvo5srqSi/gfkdib(Ie^]ba`Y}]\[Z<RvV8NSRKJn1MFj-,HGF?>b<;:?87[;:z81Uvu-2+Op.'&%I)(h&}|#"y?}_{t:[q7$
+```
 ### Flag
-
+```
+ALQ{m4lb0lg3_3h_c0isa_d3_l0uco}
+```
 ### Solução detalhada
+Observando o conteúdo de carta.txt, notamos que há vários caracteres em desordem. Mas se colocarmos nossos neurônios para pensar, podemos lembrar de um interpretador de uma linguagem muito conhecida por ser extremamente complexa, a linguagem esotérica famosa por sua complexidade é a **Malbolge**. Através de um [site](https://malbolge.doleczek.pl/) de interpretação de códigos Malbolge, conseguimos decodificar a mensagem:
+
+<img src="images/Pasted image 20230827151107.png">
 
 ## Onion Services (100)
 ### Descrição
