@@ -981,12 +981,54 @@ Observando esse comportamento, remodelamos o valor de ```CNSCTMJCO3559``` para `
 
 ## Oculto.exe (50)
 ### Descrição
+Arkham começou novamente suas brincadeiras de esconder as coisas, mas dessa vez ele se superou, conseguiu até esconder algumas funções importantes do C. Será que você será capaz de visualizar a flag escondida?
 
 ### Arquivos anexados
-
+oculto.exe
 ### Flag
-
+```
+ALQ{3nxergand0_o_0culto}
+```
 ### Solução detalhada
+Para esse desafio, foi usado a ferramenta de engenharia reversa Ghidra para encontrar a função escondida do binário.
+
+<img src="images/Pasted image 20230827133448.png">
+
+Encontramos alguns valores nas variáveis ```uStack_*``` e a seguinte instrução:
+
+```
+for (iStack_c = 0; iStack_c < 0x17; iStack_c = iStack_c + 1) {
+    acStack_48[iStack_c] = *(char *)((longlong)&uStack_28 + (longlong)iStack_c) + -3;
+}
+```
+
+Observando a instrução, podemos concluir que é parecida com as instruções do desafio "Pwn03", porém, ao invés de voltar duas casas, ele volta três. A mesma receita usada no desafio anterior é a mesma usada no oculto.exe.
+
+<img src="images/Pasted image 20230827134232.png">
+
+Transformamos isso:
+```
+0x687b71367e544f44
+0x7262336771646a75
+0x78663362
+0x776f
+0x72
+0x7d
+```
+
+Para isso:
+```
+DOT~6q{h
+ujdqg3br
+b3fx
+ow
+r
+}
+```
+
+Que por final virou ```DOT~6q{hujdqg3brb3fxowr}```.
+
+Seguindo a regra de voltar três casas e ajustando algumas caracteres, o resultado final foi igual a ```ALQ{3nxergand0_o_0culto}```.
 
 ## Pwn04 (50)
 ### Descrição
