@@ -903,7 +903,7 @@ python3 -c "print(0x9999dead9999)"
 
 Agora precisamos apenas se conectar ao servidor e enviar o valor decodificado.
 
-<img src="Pasted image 20230827131818.png">
+<img src="images/Pasted image 20230827131818.png">
 
 ## Pwn03 (25)
 ### Descrição
@@ -957,7 +957,7 @@ int main(void)
 
 Observando as variáveis, encontrados alguns valores dentro de ```local_19```, ```uStack_18```, ```uStack_14```, e ```uStack_11```. Para decifrar os valores de ```uStack_1*```, usamos a ferramenta CyberChef seguindo a seguinte receita:
 
-<img src="Pasted image 20230827130558.png">
+<img src="images/Pasted image 20230827130558.png">
 
 Valores:
 ```
@@ -977,7 +977,7 @@ for (i = 0; i < 13; i = i + 1) {
 
 Observando esse comportamento, remodelamos o valor de ```CNSCTMJCO3559``` para ```ALQARKHAM1337```. Com esse valor, conectamos ao servidor e enviamos ele.
 
-<img src="Pasted image 20230827131735.png">
+<img src="images/Pasted image 20230827131735.png">
 
 ## Oculto.exe (50)
 ### Descrição
