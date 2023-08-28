@@ -312,12 +312,18 @@ Basicamente este desafio consistia em quebrar a senha do zip, e pegar a flag.
 
 ## Uma Simples Análise (10)
 ### Descrição
-
+Kadu estava navegando em alguns sites quando descobriu um caminho peculiar, consegue descobrir qual foi e recupear a bandeira analisando o PCAP?
 ### Arquivos anexados
 
+* [alq.pcapng](files/alq.pcapng)
 ### Flag
-
+```
+ALQ{W1r3Sh@rK!}
+```
 ### Solução detalhada
+Ao abrir o arquivo com a ferramenta **Wireshark**, começamos a pesquisar por pacotes HTTP. Indo para o último pacote HTTP, encontramos um pacote contendo a flag na resposta HTTP.
+
+<img src="images/Pasted image 20230828160611.png">
 
 ## Break the Hash (25)
 ### Descrição
