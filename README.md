@@ -1295,12 +1295,19 @@ Visitando a publicação, podemos encontrar a flag na última linha.
 
 ## Hidden Flag (50)
 ### Descrição
-
-### Arquivos anexados
-
+Em algum lugar do Youtube do ooclaar possue uma flag escondida. Encontre-a.
 ### Flag
-
+```
+ALQ{hidden_texT}
+```
 ### Solução detalhada
+Ao acessar o canal do ooclaar, encontramos um vídeo onde havia um conteúdo em base32 na descrição.
+
+<img src="images/Pasted image 20230828171257.png">
+
+Ao decodificar o valor base32, recebemos a flag.
+
+<img src="images/Pasted image 20230828171431.png">
 
 ## Investigação de Voo (50)
 ### Descrição
