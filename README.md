@@ -1479,11 +1479,17 @@ A flag foi encontrada no caminho ```/srv/pwn05/flag.txt```.
 ## Descoberta Histórica (10)
 ### Descrição
 
-### Arquivos anexados
+Desafio no qual o objetivo e descobrir qual tipo de arte é o da foto.
 
 ### Flag
 
+ALQ{rupestre}
+
 ### Solução detalhada
+
+No enunciado do desafio, vem falando sobre cavernas e descoberta historicas, então basta pesquisar no google, sobre os tipos de cavernas historica/arte.
+
+<img src="images/Descobertahistorica.png">
 
 ## Quase Igual (10)
 ### Descrição
