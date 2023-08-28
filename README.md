@@ -1084,11 +1084,19 @@ done
 ## As mãozinhas (25)
 ### Descrição
 
-### Arquivos anexados
+Uma simples challenge envolvendo base64 e vigenere.
 
 ### Flag
 
+ALQ{l1br@s_e_legal}
+
 ### Solução detalhada
+
+Nesta challenge, podemos usar o exiftool no mp4, e podemos ver que nele há um base64, que ao decodar, ele nos dá uma mensagem cifrada, que é uma cifra de vigenere e nela teremos que ter uma chave para poder decodificar. A chave para decodificar a mensagem cifrada está no video, que é as mãozinhas em libras, que formam: CRIPTO, ou seja, essa é a nossa key.
+
+<img src="images/maozinhaexif.png">
+<img src="images/b64tocifra.png">
+<img src="images/maozinhaflag.png">
 
 ## Não é IPv4 (25)
 ### Descrição
