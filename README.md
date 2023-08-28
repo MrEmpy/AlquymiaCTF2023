@@ -206,11 +206,19 @@ O arquivo ```rsa_02.txt``` havia os valores de C, E, e N, e para descriptografar
 ## Enigma (50)
 ### Descrição
 
-### Arquivos anexados
+Esta challenge consistia em resolver um "enigma".
 
 ### Flag
 
+ALQ{grandeenigmadeturing}
+
 ### Solução detalhada
+
+No enunciado do desafio estava escrito "enigma", então bastava pesquisar por criptografia, e achamos o "Enigma machine".
+
+Para poder decriptar, basta seguir os passos que estava no txt, já que estava tudo em ordem praticamente.
+
+<img src="images/enigma.png">
 
 ## Senha Perdida (50)
 ### Descrição
