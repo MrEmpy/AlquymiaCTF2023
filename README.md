@@ -498,11 +498,18 @@ Então a flag final era ```ALQ{main.cfg}```.
 ## Sequência (10)
 ### Descrição
 
-### Arquivos anexados
+Uma challenge que consistia em fazer um simples somatório matemático.
 
 ### Flag
 
+ALQ{120}
+
 ### Solução detalhada
+
+Usei um simples somatório matemático, onde n é cada número pedido, o que resultou em 120, logo: ALQ{120}
+
+<img src="images/top10matematicasdomundo.png">
+
 
 ## Sequência de Collatz (10)
 ### Descrição
