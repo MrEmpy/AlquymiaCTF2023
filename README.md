@@ -1053,11 +1053,33 @@ A melhor rua para um gato!
 ## Looping (10)
 ### Descrição
 
-### Arquivos anexados
+Essa challenge consistia em decodar o base64 em 15 vezes, após fazer isso, obteremos a flag.
 
 ### Flag
 
+ALQ{N1c3_l0oP1nng}
+
 ### Solução detalhada
+
+Essa challenge consistia em decodar o base64 em 15 vezes, após fazer isso, obteremos a flag.
+
+E para automatizar isso, em vez de testar tudo na mão, criei um simples script em bash para poder automatizar.
+
+```
+#!/bin/bash
+
+echo -n "Base64 aq pai: "
+read base64_string
+
+decoded_string="$base64_string"
+
+for (( i=1; i<=15; i++ )); do
+    decoded_string=$(echo "$decoded_string" | base64 -d 2>/dev/null)
+    echo "flag pra tu bb $i: $decoded_string"
+done
+```
+
+<img src="images/looping.png">
 
 ## As mãozinhas (25)
 ### Descrição
