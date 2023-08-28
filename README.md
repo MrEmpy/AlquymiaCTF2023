@@ -1666,12 +1666,37 @@ Observando o conteúdo de carta.txt, notamos que há vários caracteres em desor
 
 ## Onion Services (100)
 ### Descrição
+Agora o ooclaar começou a desenvolver serviços ocultos na Rede Onion. Será que você será capaz de achar a flag?
 
-### Arquivos anexados
-
+[Link Onion](http://4g4relhctallxqhfhnectjopmcdw7do2p6afqtnl5xjf7a2oalo65vid.onion/)
 ### Flag
-
+```
+ALQ{Th3_onion_serv1c3}
+```
 ### Solução detalhada
+Ao acessar o site na rede onion e fazer um rápido reconhecimento, encontramos um arquivo ```robots.txt``` com um diretório chamado ```/s3cre3t```.
+
+<img src="images/Pasted image 20230828184022.png">
+
+Ao visitar o diretório, encontramos um arquivo ```index.php``` pertencente ao phpmyadmin, que não estava funcionando.
+
+<img src="images/Pasted image 20230828184127.png">
+
+Utilizamos a ferramenta ffuf para procurar por arquivos txt no diretório encontrado, e com sucesso, encontramos o arquivo ```note.txt```.
+
+<img src="images/Pasted image 20230828184808.png">
+
+<img src="images/Pasted image 20230828184901.png">
+
+Segundo a mensagem, a politica de senhas exige uma senha forte, e o Douglas trocou a senha de Ooclaar (```S3nh@F@ciL2022!```) alterando apenas 1 dígito.
+
+Algumas portas foram encontradas após a inicialização da ferramenta de port scanning **rustscan**, sendo elas, FTP (porta 21), SSH (porta 22), e HTTPD (porta 80).
+
+<img src="images/Pasted image 20230828185124.png">
+
+Trocamos o dígito ```2022``` da senha do ooclaar para ```2023``` e validamos no servidor SSH. Usamos o comando ```proxychains ssh ooclaar@4g4relhctallxqhfhnectjopmcdw7do2p6afqtnl5xjf7a2oalo65vid.onion # senha: S3nh@F@ciL2023!```.
+
+<img src="images/Pasted image 20230828185317.png">
 
 ## Publicidade de Limpeza (100)
 ### Descrição
