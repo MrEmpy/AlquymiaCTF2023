@@ -344,7 +344,7 @@ A hash md5 estava com um char a mais, que seria o "k", removendo esse "k", e uti
 
 <img src="images/breakthehash.png">
 
-## Uma Simples Análise (10)
+## Um ataque ao banco (25)
 ### Descrição
 Parece que o [https://bancoalq.com.br/](https://bancoalq.com.br/) nem começou a ser desenvolvido e já temos algumas pessoas fazendo alguns requests com tentativas de login em nossa plataforma. Ainda bem que estamos sempre de olho em nossos logs de servidor para descobrir qualquer tentativa maliciosa.
 
