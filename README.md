@@ -1480,12 +1480,18 @@ Usando a ferramenta **dig** do Linux, começamos a buscar informações TXT dos 
 
 ## O código obscuro (50)
 ### Descrição
-
+Em uma investigação em uma empresa, encontramos um código estranho que possui uma flag escondida. Será que você vai conseguir capturar a flag?
 ### Arquivos anexados
 
+* [codigo_misterioso.txt](files/codigo_misterioso.txt)
 ### Flag
-
+```
+ALQ{CNC_e_um_terror}
+```
 ### Solução detalhada
+Ao analisar o arquivo, percebemos a presença de algumas posições nas linhas do arquivo. Fazendo uma pesquisa no Google, encontramos um [site](https://ncviewer.com/) que visualizava arquivos GCode. Importamos o arquivo e recebemos a flag em seguida.
+
+<img src="images/Pasted image 20230828175311.png">
 
 ## Roubo ao Museu (50)
 ### Descrição
