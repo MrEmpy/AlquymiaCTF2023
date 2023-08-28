@@ -822,11 +822,52 @@ echo "Flag: ALQ{$i}"
 ## Rotas (50)
 ### Descrição
 
-### Arquivos anexados
+Simples challenge envolvendo routing.
 
 ### Flag
 
+ALQ{10.1.1.45,10.10.3.34,10.10.3.45,172.30.0.1}
+
 ### Solução detalhada
+
+Essa challenge consistia em;
+
+Apresentando um cenário de roteamento em um equipamento de rede. As rotas configuradas eram as seguintes:
+
+Rota padrão: eth0
+Rota para a rede 192.168.0.0/16: eth1
+Rota para a rede 10.10.0.0/24: eth2
+
+O desafio era identificar quais dos IPs da lista fornecida seriam direcionados para fora da placa de rede eth0. Você deveria considerar apenas os IPs que fazem parte das redes internas, ou seja, os IPs privados, e depois remover aqueles que têm rotas fixas que não levariam à interface eth0.
+
+A lista de IPs fornecida era a seguinte:
+
+* 192.168.0.43
+* 192.168.1.24
+* 192.168.34.24
+* 192.168.34.33
+* 192.168.133.133
+* 192.168.133.255
+* 172.30.0.1
+* 182.154.154.30
+* 10.10.3.34
+* 10.10.0.22
+* 10.10.0.23
+* 10.10.3.45
+* 10.1.1.45
+* 23.25.44.53
+
+Após aplicar a lógica de filtrar os IPs de rede interna e remover aqueles que têm rotas fixas que não saem pela eth0, chegamos à seguinte lista de IPs que atendem aos critérios:
+
+* 10.1.1.45
+* 10.10.3.34
+* 10.10.3.45
+* 172.30.0.1
+
+A flag resultante, de acordo com o formato indicado, seria:
+ALQ{10.1.1.45,10.10.3.34,10.10.3.45,172.30.0.1}
+
+<img src="images/rotas.png">
 
 # Mini Gamer
 
