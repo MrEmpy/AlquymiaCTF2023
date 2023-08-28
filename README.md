@@ -540,12 +540,26 @@ Copiando o valor e adicionando na ferramenta CyberChef e usando a receita "From 
 
 ## Vazamento de Informações (100)
 ### Descrição
-
+Suspeita-se que um individuo está vazando informações confidenciais através de documentos do governo. Faça uma analise desse item e ache a prova.
 ### Arquivos anexados
 
+* [documento.doc](files/documento.doc)
 ### Flag
-
+```
+ALQ{flag_escondida}
+```
 ### Solução detalhada
+Após baixar o documento, usamos a ferramenta **unzip** para extrair as informações do arquivo.
+
+<img src="images/Pasted image 20230828145100.png">
+
+Posteriormente, usamos o comando ```grep -Ri alq``` para procurar por alguma informação relacionado a palavra "alq" ("ALQ", "ALq", "aLQ"...). Encontramos uma URL que levava a um site pertencente ao Canva.
+
+<img src="images/Pasted image 20230828145329.png">
+
+Ao acessar o site, conseguimos visualizar a flag.
+
+<img src="images/Pasted image 20230828145359.png">
 
 # Lógica
 
