@@ -995,11 +995,32 @@ Para resolvermos este desafio, é bem simples, basta apenas usarmos o whois, e u
 ## Dispositivo Antigo (25)
 ### Descrição
 
-### Arquivos anexados
+Uma challenge no qual o objetivo é fazer um osint em um usuário no clube do hardware, e achar um produto.
 
 ### Flag
 
+ALQ{VGA 128 Mb AGP G-Force3 MSI TI 200 8850}
+
 ### Solução detalhada
+
+Este desafio de osint, levou um pouco mais de tempo do que os outros. Mas no enunciado tem um usuario chamado "flavioac", e a quantia em dolar que é de 137 e o site do clube do hardware.
+
+<img src="images/disenum.png">
+<img src="images/os1.png">
+
+Após dorkar, encontramos um post do usuario "flavioac" em um topico do forum do clube do hardware, agora podemos analisar este perfil com mais calma.
+
+<img src="images/os2.png">
+
+Depois de muita procura no perfil dele, sobre algum produto que estava vendendo, dorkando com U$ 137
+
+Achei um tópico na página 4, aonde ele fez um post dizendo que queria vender "mqs de médio desempenho", e lá estava o produto de U$ 137,00
+
+<img src="images/os3.png">
+<img src="images/os4.png">
+
+link do tópico: https://www.clubedohardware.com.br/profile/283518-flavioac/content/page/4/?type=forums_topic
+link da publicação: https://www.clubedohardware.com.br/forums/topic/10888-vou-vender-mqs-de-m%C3%A9dio-desempenho/
 
 ## Encontre a fotógrafa (25)
 ### Descrição
