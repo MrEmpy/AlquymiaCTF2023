@@ -2012,12 +2012,18 @@ No enunciado do desafio, vem falando sobre cavernas e descoberta historicas, ent
 
 ## Quase Igual (10)
 ### Descrição
-
+Existe uma diferença clara, mas nem sempre é perceptível.
 ### Arquivos anexados
 
+* [stego_pinguim.png](files/stego_pinguim.png)
 ### Flag
-
+```
+ALQ{quase_igual}
+```
 ### Solução detalhada
+Utilizamos a ferramenta **stegsolve** para encontrar a flag escondida na imagem.
+
+<img src="images/Pasted image 20230828191048.png">
 
 ## Vaso de decoração (25)
 ### Descrição
