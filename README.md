@@ -2066,11 +2066,42 @@ Flag: https://ALQ{imagem_0cult@}
 ## Na Deepweb 2 (50)
 ### Descrição
 
-### Arquivos anexados
+Esta foi uma challenge bem divertida no qual teriamos que utilizar ferramentas de stego (online também), cripto, bruteforce, converter ascii para texto e etc.
 
 ### Flag
 
+ALQ{NaDeEpW33p2}
+
 ### Solução detalhada
+
+Essa challenge consistia em;
+
+* Quando você baixa o arquivo rar, ele fez com senha, mas se você notar, o nome dele, os numeros, é um ascii, então decodando isso, vez a key: DECRYPT
+* Ao usar a key DECRYPT para unzipar, ele vem com 2 pdf e 2 imagem, o PDF 2, nele tem um qrcode com um X então precisamos remover isso, e as cifras, codigo morse, base64, que estava na imagem era só falso positivo, mas sendo um dando uma hint que existe uma "senha" em uma das imagens.
+* Para podermos ver o qrcode e finalmente decodar, poderiamos usar o pdfimages para gravar imagens JPEG como arquivos JPEG, ou usar alternativas de sites online para isso.
+* Depois que removemos o X na imagem, e poderiamos jogar em um qrcode decoder online como o "https://zxing.org/w/decode.jspx", podemos ver uma cifra de vigenere, porem como todo mundo sabe, para podermos descriptografar um texto em vigenere, precisamos de uma key,e nós nao temos essa key, então precisariamos encontrar a key na imagem.
+* No PDF 1, podemos encontrar a senha, uma trick que eu usei foi usar o control + A, para poder selecionar algum texto na imagem, e funcionou. Outra coisa também que eu testei foi sites online para poder extrair texto de pdf
+* Depois de conseguir a key para decriptar o texto em vigenere, ele nós da outra senha.
+* Essa senha podemos usar no steghide na imagem 3.jpg.
+* Depois de utilizar essa senha na imagem 3 usando steghide, ele dropa um "Alq.txt" e nele tem um base64, se decodarmos ele nos da uma lista de senhas que é para usar essa wordlist e fazer um bruteforce na imagem 4.
+* Para isso utilizei o stegcracker na imagem 4 junto com a lista de senha que foi nos dada, e não demorou muito ele descobriu a senha, e depois foi só usar o steghide na imagem 4, que conseguimos nossa flag!!
+
+<img src="images/1.png">
+<img src="images/2.png">
+<img src="images/3.png">
+<img src="images/4.png">
+<img src="images/5.png">
+<img src="images/6.png">
+<img src="images/07.png">
+<img src="images/08.png">
+<img src="images/09.png">
+<img src="images/010.png">
+<img src="images/011.png">
+<img src="images/012.png">
+<img src="images/013.png">
+<img src="images/14.png">
+<img src="images/15.png">
+<img src="images/16.png">
 
 ## Tinta Invisível (50)
 ### Descrição
