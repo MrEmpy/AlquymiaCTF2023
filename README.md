@@ -2205,43 +2205,43 @@ Usamos o site [Boxy SVG](https://boxy-svg.com/) para analisar o arquivo e conseg
 
 Descobrimos que havia um quadrado vermelho debaixo dos quadrados maiores.
 
-<img src="files/Pasted image 20230828192533.png">
+<img src="images/Pasted image 20230828192533.png">
 
 Começamos a remover todos esses quadrados que haviam na imagem. O resultado foi esse:
 
-<img src="files/Pasted image 20230828192728.png">
+<img src="images/Pasted image 20230828192728.png">
 
 Observando o resultado, os jogadores disseram que parecia com um caminho quebrado, outros diziam que lembrava um caça-palavras.
 
 Durante a busca por writeups parecidos com o que nós estávamos enfrentando, vimos um writeup que chamou nossa atenção, onde uma **senha** estava **escondida entre as cores em hex**:
 
-<img src="files/Pasted image 20230828193316.png">
+<img src="images/Pasted image 20230828193316.png">
 [link do writeup](https://medium.com/@FourOctets/ctf-tidbits-part-1-steganography-ea76cc526b40)
 
 Observamos as cores são meias cinzentas, e as cores dos quadrados do SVG também eram cinzentas.
 
 Com essa visão, juntamos nossas hipóteses de cores cinzentas, caça-palavras, e caminhos quebrados, para seguir um caminho das cores, copiar seu valor hex, e decodificar.
 
-<img src="files/Pasted image 20230828193802.png">
+<img src="images/Pasted image 20230828193802.png">
 
-<img src="files/Pasted image 20230828193817.png">
+<img src="images/Pasted image 20230828193817.png">
 
 Recebemos esse valor desconhecido, então usamos a receita "Magic" para identificar do que se tratava.
 
-<img src="files/Pasted image 20230828193902.png">
+<img src="images/Pasted image 20230828193902.png">
 
 Ela retornou 2 possíveis codificações, Base64 e Base85, começamos com Base64 e observamos que algumas letras estavam aparecendo.
 
-<img src="files/Pasted image 20230828194356.png">
+<img src="images/Pasted image 20230828194356.png">
 
 Começamos a testar mais caminhos para termos certeza de que estávamos certos.
 
-<img src="files/Pasted image 20230828194938.png">
+<img src="images/Pasted image 20230828194938.png">
 
-<img src="files/Pasted image 20230828194952.png">
+<img src="images/Pasted image 20230828194952.png">
 
 Havíamos descoberto uma mensagem entre as cores seguida por uma caminho. Iniciamos a busca pela flag, e encontramos ela nesse caminho:
 
-<img src="files/Pasted image 20230828195212.png">
+<img src="images/Pasted image 20230828195212.png">
 
-<img src="files/Pasted image 20230828195224.png">
+<img src="images/Pasted image 20230828195224.png">
