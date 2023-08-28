@@ -215,11 +215,18 @@ O arquivo ```rsa_02.txt``` havia os valores de C, E, e N, e para descriptografar
 ## Senha Perdida (50)
 ### Descrição
 
-### Arquivos anexados
+Challenge envolvendo Gronsfeld Cipher e uma key para decriptar.
 
 ### Flag
 
+ALQ{ISSOAQUIEGRONSFELD}
+
 ### Solução detalhada
+
+Esta foi uma challenge no qual precisariamos encontrar um tipo de cifra chamada Gronsfeld, que é uma cifra polialfabética, depois usamos a key que estava no proprio enunciado da chall "123456" para poder decriptar, e obter a flag.
+
+<img src="images/6digits.png">
+<img src="images/senhaperdida.png">
 
 ## Mensagem Codificada (100)
 ### Descrição
