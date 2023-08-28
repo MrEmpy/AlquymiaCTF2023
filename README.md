@@ -514,11 +514,39 @@ Usei um simples somatório matemático, onde n é cada número pedido, o que res
 ## Sequência de Collatz (10)
 ### Descrição
 
-### Arquivos anexados
+Calculo simples envolvendo sequência de collatz.
 
 ### Flag
 
+ALQ{8}
+
 ### Solução detalhada
+
+Para isso fiz um simples script em shell para poder ver quantas iterações são necessárias para chegar ao numero 1 a partir do número 6.
+
+```
+#!/bin/bash
+
+n=6
+i=0
+
+echo "Sequencia de Collatz para o número $n:"
+echo $n
+
+while [ $n -ne 1 ]; do
+    if [ $((n % 2)) -eq 0 ]; then
+        n=$((n / 2))
+    else
+        n=$((3 * n + 1))
+    fi
+    echo $n
+    i=$((i + 1))
+done
+
+echo "Flag: ALQ{$i}"
+```
+
+<img src="images/collatz.png">
 
 ## Rotas (50)
 ### Descrição
