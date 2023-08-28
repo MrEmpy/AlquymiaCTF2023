@@ -1460,12 +1460,23 @@ Comando utilizado no nmap: nmap -vvv -p- -6 2001:19f0:5:14f0:5400:4ff:fe78:b66c
 
 ## O Banco Alq (50)
 ### Descrição
+Parece que a equipe de desenvolvimento do Alquymia lançou um banco, mas o site está oculto juntamente com diversas outras informações importantes. Só sobrou o DNS para buscar alguma coisa...
 
-### Arquivos anexados
-
+[http://bancoalq.com.br/](http://bancoalq.com.br/)
 ### Flag
-
+```
+ALQ{flag_over_dns}
+```
 ### Solução detalhada
+Para enumerar informações sobre o DNS, pesquisamos o domínio no site [SecurityTrails](https://securitytrails.com/). Encontramos alguns subdomínios pertencentes ao domínio.
+
+<img src="images/Pasted image 20230828172731.png">
+
+Usando a ferramenta **dig** do Linux, começamos a buscar informações TXT dos subdomínios. Encontramos uma mensagem em Base32 e decodificamos.
+
+<img src="images/Pasted image 20230828172924.png">
+
+<img src="images/Pasted image 20230828172944.png">
 
 ## O código obscuro (50)
 ### Descrição
