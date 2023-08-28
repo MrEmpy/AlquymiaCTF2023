@@ -514,7 +514,7 @@ Então a flag final era ```ALQ{main.cfg}```.
 Sim, achamos a pasta, mas não achamos o conteúdo sensível que ele está escondendo... Ache a flag para pontuar nessa investigação.
 ### Arquivos anexados
 
-* [home.tar.xz](blob/main/files/home.tar.xz)
+* [home.tar.xz](files/home.tar.xz)
 ### Flag
 ```
 ALQ{200.160.2.3}
