@@ -365,12 +365,28 @@ Existe uma vulnerabilidade no Wordpress onde o atacante abusa de uma função do
 
 ## Validação de Dados (25)
 ### Descrição
+Descubra através de uma base de dados quantas informações possuem na base de dados.
 
+Resp1: Qual a quantidade total de registros na base de dados? Resp2: Qual a quantidade de e-mail cadastrados? Resp3: Qual a quantidade de hashs válidos possuem na base de dados?
+
+Junte todas as respostas no seguinte padrão: ALQ{resp1-resp2-resp3}
 ### Arquivos anexados
 
+* [bd.db](files/bd.db)
 ### Flag
-
+```
+ALQ{100-94-89}
+```
 ### Solução detalhada
+Usando a ferramenta **DB Browser for SQLite**, abrimos o banco de dados. Para montar a primeira parte da resposta, encontramos a tabela "users" e fomos até o final dela.
+
+<img src="images/Pasted image 20230828163829.png">
+
+A quantidade de e-mails que havia na coluna "Email" era de 94.
+
+Analisando todos os hashs, descobrimos que havia 89 válidos.
+
+No final, a flag completa foi ```ALQ{100-94-89}```.
 
 ## Backdoor (50)
 ### Descrição
