@@ -2061,9 +2061,33 @@ Flag: https://ALQ{imagem_0cult@}
 
 ### Arquivos anexados
 
+* [animacao.mp4](files/animacao.mp4)
 ### Flag
-
+```
+ALQ{QR_Qu3brad0}
+```
 ### Solução detalhada
+Visualizando o vídeo, observamos que alguns fragmentos quadrados tinha uma posição especifica, então tiramos screenshot de todas as vezes que os fragmentos apareciam e removemos o fundo preto.
+
+<img src="images/Pasted image 20230828181333.png">
+
+<img src="images/Pasted image 20230828181347.png">
+
+Posteriormente, juntamos todos os fragmentos em um editor de fotos com a resolução 1024x1024.
+
+<img src="images/Pasted image 20230828181527.png">
+
+<img src="images/Pasted image 20230828181545.png">
+
+Observando os fragmentos juntos, descobrimos que se tratava de um QRCode, então modificamos a cor da imagem para preto e branco e adicionamos as três partes que faltava do QRCode.
+
+<img src="images/Pasted image 20230828181706.png">
+
+<img src="images/Pasted image 20230828181720.png">
+
+Posteriormente decodificamos o QRCode e recebemos a flag.
+
+<img src="images/Pasted image 20230828181915.png">
 
 ## O lado oculto da lua (100)
 ### Cernan: Whooooooooooooo. Young: Você também ouviu aquele som de assobio? Cernan: Sim. Soa como – você sabe, música do tipo espaço sideral. Young: Eu me pergunto o que é.
