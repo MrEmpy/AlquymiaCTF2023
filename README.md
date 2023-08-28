@@ -165,11 +165,18 @@ O arquivo ```rsa_01.txt``` havia os valores de C, E, e N, e para descriptografar
 ## Presente de Aniversário (25)
 ### Descrição
 
-### Arquivos anexados
+Bernardino Branca criou uma bebida e deu de presente a seu amigo Arkham. Como sabia que ele gostava de criptografia, deixou uma no rótulo da garrafa para que ele desvendasse.
 
 ### Flag
 
+ALQ{F3rnet_eh_facinho_03}
+
 ### Solução detalhada
+
+No enunciado no desafio, está escrito o nome de uma pessoa chamada "Bernardino Branca", e procurando por este nome no google, podemos ver que ele criou uma bebida chamado fernet, e existe uma criptografia chamada fernet, e basta usarmos a key e o token para decodar, e pegar a flag.
+
+<img src="images/bernardino.png">
+<img src="images/presentedeaniversario.png">
 
 ## RSA 002 (25)
 ### Descrição
