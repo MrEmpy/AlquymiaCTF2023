@@ -1029,16 +1029,13 @@ Para resolvermos este desafio, é bem simples, basta apenas usarmos o whois, e u
 ### Solução detalhada
 
 ## A melhor rua para um gato! (100)
-### Fiquei sabendo por uma amiga Thayse, que existe um canto onde os gatos se sentem super felizes, ficam sempre miando, mas infelizmente não conseguir achar. Só sei que a rua fica no Raleigh, NC, USA. Pontue com o nome da rua dentro da flag ALQ{nome-da-rua-igual-ao-google}
+### Descrição
 
-### OBS: O nome da rua é separado por - 
-### OBS1: O nome é conforme está no Google.
+Osint em uma cidade, a procura por uma rua que tem haver com "gatos".
 
-### Arquivos anexados
+### Flag
 
-A melhor rua para um gato!
-
-### ALQ{Mial-St}
+ALQ{Mial-St}
 
 ### Solução detalhada
 
