@@ -2112,11 +2112,29 @@ Essa challenge consistia em;
 ## Tinta Invisível (50)
 ### Descrição
 
-### Arquivos anexados
+Uma challenge bem interessante e muito simples utilizando ferramentas de stego.
 
 ### Flag
 
+ALQ{V3lhos_metodos_s4o_os_m3lh0res}
+
 ### Solução detalhada
+
+Essa challenge consistia em;
+
+* Primeiro passo eu abri a imagem usando eog, e se deparamos com aquele meme bem famoso, só que, não tinha nada escrito no papel, então precisamos descobrir o que tem escrito nele.
+* Depois, eu usei o exiftool e na description encontrei "Blindhide" (guardem essa informação pois vamos usa-la depois), e um texto aonde dizia que o java é horrivel (concordo 100% ahaushuahushuas).
+* Utilizando o stegsolve, encontramos outra verdade, dessa vez no papel, dizendo que o java é horrivel hahahaha
+* E por fim, existe uma ferramenta chamada "diit" que implementa vários outros algoritmos como BattleSteg , *Blindhide*, HideSeek, FilterFirst, DynamicBattleSteg, DynamicFilterFirst. Então é so baixarmos ele, e usar na imagem.
+* Após abrir o diit, precisariamos colocar o path da imagem, selecionar o algoritmo blindhide e colocar um output.
+* Após fazer isso, temos a flag!!
+
+<img src="images/t1.png">
+<img src="images/t2.png">
+<img src="images/t3.png">
+<img src="images/t4.png">
+<img src="images/t5.png">
+<img src="images/t6.png">
 
 ## A Animação (100)
 ### Descrição
