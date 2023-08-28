@@ -135,11 +135,161 @@ ALQ{PHP_1nt3rn4ls_F0r_Fun_4nd_Pr0f1t}
 ## Cripto 001 (10)
 ### Descrição
 
-### Arquivos anexados
+Uma simples challenge de criptografia que envolve reverter o processo de uma criptografia.
 
 ### Flag
 
+ALQ{f1bon4cc1_d0_4rkham}
+
 ### Solução detalhada
+
+Para podermos reverter o processo da criptografia do arkham, primeiro precisamos entender como o codigo em c que ele criou funciona;
+
+<img src="images/outputcriptografado.png">
+<img src="images/codigoc.png">
+
+```
+// cripto do arkham - 2023
+// use uma string de no maximo 25 caracteres para criptografar
+
+#include <stdio.h>
+#include <time.h>
+#include <string.h>
+
+int main(int argc, char *argv[])
+{
+     int count, x, y, z, lc, t, r;
+     FILE *a;
+     srand(time(NULL));
+
+     if(argc != 2)
+     {
+          printf("\nUse: ./ark-cripto [secret_message]\n");
+          printf("Examples:\n");
+          printf("./ark-cripto hello_arkham!\n\n");
+          return 0;
+     }
+
+     a = fopen("output-ark-cripto.txt", "w");
+     t = strlen(argv[1]);
+     x = 34;
+     y = 55;
+     lc = 0;
+
+     for(count = 0; count < 10000000; count++)
+     {
+          z = x + y;
+          r = rand() % 127;
+          if((count == z) && (lc < t))
+          {
+               fprintf(a, "%c", argv[1][lc]);
+               lc++;
+               x = y;
+               y = z;
+          }
+          else
+          {
+               fprintf(a, "%c", r);
+          }
+     }
+
+     fclose(a);
+     return 0;
+}
+```
+
+Ele criptografa uma mensagem secreta fornecida como argumento de linha de comando, usando uma sequência de números aleatórios para substituir os caracteres da mensagem original. Aqui está um resumo bem resumido do que o código faz:
+
+O programa começa importando as bibliotecas necessárias (stdio.h, time.h e string.h).
+
+Ele verifica se o número correto de argumentos foi passado via linha de comando. Se não for o caso, ele imprime mensagens de instrução e exemplos de uso e encerra.
+
+O programa abre um arquivo chamado "output-ark-cripto.txt" para escrita.
+
+Ele obtém o comprimento da mensagem secreta passada como argumento.
+
+Inicializa algumas variáveis (x, y, lc) e inicia um loop que se repetirá 10 milhões de vezes.
+
+Em cada iteração do loop, ele calcula um novo valor 'z' somando os valores de 'x' e 'y', e gera um número aleatório 'r' entre 0 e 126.
+
+Ele verifica se a contagem atual é igual a 'z' e se o índice 'lc' é menor que o comprimento da mensagem original.
+
+Se as condições forem atendidas, ele escreve o próximo caractere da mensagem original no arquivo de saída, atualiza o índice 'lc', e atualiza os valores de 'x' e 'y' com 'y' e 'z', respectivamente.
+
+Caso contrário, ele escreve o caractere representado por 'r' no arquivo de saída.
+
+Após o loop, o programa fecha o arquivo de saída e termina.
+
+Em resumo, o código gera um arquivo de saída que contém uma sequência de caracteres criptografados gerados a partir da mensagem original, utilizando uma técnica baseada em números aleatórios e manipulação de índices. e essa criptografia é muito simples.
+
+<img src="images/codeparadescriptografar.png">
+
+Agora para poder descriptografar podemos criar um codigo em C aonde;
+
+```
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main() {
+    int count, x, y, z, lc, r;
+    char d[1000];
+    int m = 0;
+
+    FILE *a = fopen("output-ark-cripto.txt", "r");
+    if (a == NULL) {
+        perror("Error");
+        return 1;
+    }
+
+    fseek(a, 0, SEEK_END);
+    m = ftell(a);
+    fseek(a, 0, SEEK_SET);
+
+    x = 34;
+    y = 55;
+    lc = 0;
+
+    for (count = 0; count < m; count++) {
+        z = x + y;
+        r = fgetc(a);
+
+        if (count == z) {
+            d[lc] = r;
+            lc++;
+            x = y;
+            y = z;
+        }
+    }
+
+    d[lc] = '\0';
+
+    printf("Toma tua flag bb: %s\n", d);
+
+    fclose(a);
+    return 0;
+}
+```
+
+* Inclui as bibliotecas padrão stdio.h, stdlib.h e string.h.
+* Define a função main(), que é o ponto de entrada do programa.
+* Declara várias variáveis, incluindo count para contar iterações, x e y para cálculos, z para um valor intermediário, lc para controlar a posição no array d, r para armazenar caracteres lidos do arquivo, d para armazenar uma sequência de caracteres e m para o tamanho do arquivo.
+* Abre o arquivo chamado "output-ark-cripto.txt" no modo leitura ("r"), verificando se a abertura foi bem-sucedida. Se não for, imprime uma mensagem de erro e encerra o programa com código de erro 1.
+* Utiliza fseek para posicionar o ponteiro de arquivo no final do arquivo (SEEK_END) e, em seguida, obtém a posição atual do ponteiro usando ftell. Isso é usado para determinar o tamanho do arquivo.
+* Retorna o ponteiro do arquivo para o início usando fseek com SEEK_SET.
+* Inicializa os valores de x, y e lc.
+* Entra em um loop que percorre cada caractere do arquivo lido, um por um.
+* Dentro do loop, calcula z como a soma de x e y e lê um caractere do arquivo para r.
+* Se count for igual a z, isso significa que o caractere atual deve ser armazenado no array d. Portanto, o caractere é atribuído a d[lc], a variável lc é incrementada e os valores de x e y são atualizados para y e z, respectivamente.
+* Após o loop, é adicionado um caractere nulo '\0' ao final do array d, para garantir que ele seja tratado como uma string válida.
+* Imprime a string contida em d com uma mensagem "Toma tua flag bb: ".
+* Fecha o arquivo.
+* Retorna 0 para indicar que o programa foi executado com sucesso.
+
+E aqui está a flag;
+
+<img src="images/flagfibcripto.png">
+
 
 ## RSA 001 (10)
 ### Descrição
