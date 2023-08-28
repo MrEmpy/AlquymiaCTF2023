@@ -1076,7 +1076,7 @@ Assim, executamos o ataque trocando o valor para true, para dizer que estamos au
 
 <img src="images/Pasted image 20230827095752.png">
 
-## Investigação (100)
+## Defense and Attack (200)
 ### Descrição
 No mundo de segurança você vai precisar em alguns momentos atacar:
 
