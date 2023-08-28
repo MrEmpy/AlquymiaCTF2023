@@ -511,11 +511,19 @@ Então a flag final era ```ALQ{main.cfg}```.
 ## Adivinha (10)
 ### Descrição
 
-### Arquivos anexados
+Uma challenge no qual o objetivo seria se conectar em um servidor, e achar o numero correto para obter a flag.
 
 ### Flag
 
+ALQ{meu_primeiro_gamer}
+
 ### Solução detalhada
+
+Esta challenge pode ser resolvida usando apenas uma linha de comando (oneline), para poder se conectar no servidor enviando numeros aleatórios de 1 até 100, até acertar o numero correto.
+
+Oneline usado: while true; do echo $((RANDOM%100+1)) | nc ctf-play.alquymia.com.br 1234; done
+
+<img src="images/adivinha.png">
 
 ## Pokedex (50)
 ### Descrição
