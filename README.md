@@ -2125,11 +2125,22 @@ Utilizamos a ferramenta **stegsolve** para encontrar a flag escondida na imagem.
 ## Vaso de decoração (25)
 ### Descrição
 
-### Arquivos anexados
+Uma simples challenge envolvendo braille.
 
 ### Flag
 
+ALQ{PONTOS}
+
 ### Solução detalhada
+
+Essa challenge consistia em;
+
+* Quando olhamos ela usando eog, podemos perceber que tem alguns pontos puxados pra uma cor meio amarela
+* E isso é um alfabeto em braille, então pegando a tabela/alfabeto em braille, os pontinhos com o tom de cor mais pro amarelo, se formam PONTOS.
+* E essa é a flag: ALQ{PONTOS}
+
+<img src="images/alfbraile.png">
+<img src="images/pontinhos.png">
 
 ## Fake Story (50)
 ### Descrição
