@@ -305,15 +305,19 @@ A hash md5 estava com um char a mais, que seria o "k", removendo esse "k", e uti
 ### Solução detalhada
 
 ## Backdoor (50)
-### A maquina foi violadada e possivelmente o atacatante adicionou um backdoor. Especifique qual o arquivo que foi modificado para criar o acesso persistente e adicione o nome do arquivo dentro da flag:
+### Descrição
 
-### IP: 140.82.12.60 User: ubuntu Senha: D9LnPTi2z4xVJefD
+Uma máquina no qual o objetivo é identificar uma backdoor (Pam Backdoor).
 
-Ao entrar no ssh, podemos usar a mesma senha do usuario ubuntu para se tornar root.
+### Flag
 
-Após isso, ao ir no /root, poderiamos ver o linpeas.sh e o pspy64 (isso foi colocado propositalmente na máquina).
+ALQ{pam_unix.so}
 
-Ao rodar linpeas, voce verá que existe um arquivo chamado "/usr/include/type.h"
+### Descrição detalhada
+
+Ao entrar no ssh, podemos usar a mesma senha do usuario ubuntu para se tornar root. Após isso, ao ir no /root, poderiamos ver o linpeas.sh e o pspy64 (isso foi colocado propositalmente na máquina).
+
+Rodando o linpeas, você verá que existe um arquivo chamado "/usr/include/type.h"
 
 <img src="images/img.png">
 
@@ -326,14 +330,6 @@ Pesquisando por "type.h" "pam" backdoor, chegamos a um repositorio no github, no
 <img src="images/img3.png">
 
 <img src="images/img4.png">
-
-Flag: ALQ{pam_unix.so}
- 
-### Arquivos anexados
-
-### Flag
-
-### Solução detalhada
 
 ## Escovando Bits de Rede (50)
 ### Descrição
@@ -1041,7 +1037,7 @@ A melhor rua para um gato!
 
  Agora ao clicarmos naquele endereço no google maps, podemos ver uma rua chamada Miaul St, e essa é a nossa flag.
 
- <img src="images/mial.png">
+ <img src="images/miaul.png">
 
 # Outros
 
@@ -1075,11 +1071,20 @@ A melhor rua para um gato!
 ## Não é IPv4 (25)
 ### Descrição
 
-### Arquivos anexados
+Scanning no Ipv6 usando nmap + usando nc para se conectar no ipv6 na porta 3335 e por fim, um simples buffer overflow.
 
 ### Flag
 
+ALQ{Buffer_over_cmd}
+
 ### Solução detalhada
+
+Essa challenge, consistia em fazer um scan no ipv6 usando nmap (a flag -6 do nmap é utilizada para fazer scanning/varredura em um ipv6), após encontrar as portas abertas, podemos ver uma porta "3335", podemos utilizar o nc -6 para se conectar nela, quando nos conectamos nos deparamos com um simples buffer overflow, e é so prencher com vários "A", que o buffer estoura, e obtemos a flag.
+
+Comando utilizado no nmap: nmap -vvv -p- -6 2001:19f0:5:14f0:5400:4ff:fe78:b66c
+
+<img src="images/portasipv6.png">
+<img src="images/simplebof.png">
 
 ## O Banco Alq (50)
 ### Descrição
