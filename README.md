@@ -2216,6 +2216,7 @@ Observando o resultado, os jogadores disseram que parecia com um caminho quebrad
 Durante a busca por writeups parecidos com o que nós estávamos enfrentando, vimos um writeup que chamou nossa atenção, onde uma **senha** estava **escondida entre as cores em hex**:
 
 <img src="images/Pasted image 20230828193316.png">
+
 [link do writeup](https://medium.com/@FourOctets/ctf-tidbits-part-1-steganography-ea76cc526b40)
 
 Observamos as cores são meias cinzentas, e as cores dos quadrados do SVG também eram cinzentas.
