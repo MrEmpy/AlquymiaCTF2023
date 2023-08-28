@@ -238,12 +238,33 @@ Esta foi uma challenge no qual precisariamos encontrar um tipo de cifra chamada 
 
 ## Mensagem Codificada (100)
 ### Descrição
+Uma mensagem foi estranhamente recebida por um dos nossos desenvolvedores mobile.
 
-### Arquivos anexados
+h-cc-bbb-eee-b-c-fff-h-iiiii
 
+Adicione a palavra encontrada no modelo de flag: ALQ{resposta}
 ### Flag
-
+```
+ALQ{tecladot9}
+```
 ### Solução detalhada
+Observando a descrição do desafio, a palavra "mobile" está presente, então começamos a pensar em alguma mensagem, codificação relacionada a mobile. Chegamos a converter as letras para seus respectivos números dentro do alfabeto:
+
+```
+8-33-222-555-2-3-666-8-99999
+```
+
+Um dos jogadores levantou uma hipótese sobre o teclado dos celulares antigos, conhecidos como **teclados T9**.
+
+<img src="images/Pasted image 20230828155428.png">
+
+Com base nessa informação, fizemos a decodificação da mensagem codificada, que resultou em:
+
+```
+t-e-c-l-a-d-o-t-9
+```
+
+Formando assim a flag ```ALQ{tecladot9}```.
 
 ## Receita de Bolo (100)
 ### Descrição
