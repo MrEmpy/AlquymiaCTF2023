@@ -962,11 +962,17 @@ Assim, executamos o ataque trocando o valor para true, para dizer que estamos au
 ## Rastreio de IP (10)
 ### Descrição
 
-### Arquivos anexados
+Um hacker conseguiu invadir um sistema de câmera de um hospital, mas antes de desconectar um dos funcionários da equipe de TI conseguiu capturar um IP de origem: 177.45.70.184. A partir dessa evidência descubra o ownerid desse IP e responda com a resposta no padrão solicitado. Exemplo: ALQ{respostadapergunta}
 
 ### Flag
 
+ALQ{02.558.157/0001-62}
+
 ### Solução detalhada
+
+Para resolvermos este desafio, é bem simples, basta apenas usarmos o whois, e usar o grep no ownerid deste endereço de ip: 177.45.70.184
+
+<img src="images/ownerid.png">
 
 ## Dispositivo Antigo (25)
 ### Descrição
