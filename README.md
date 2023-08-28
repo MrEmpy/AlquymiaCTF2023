@@ -1267,12 +1267,31 @@ link da publicação: https://www.clubedohardware.com.br/forums/topic/10888-vou-
 
 ## Encontre a fotógrafa (25)
 ### Descrição
+Pedro está buscando o amor da sua vida que encontrou em uma rede social profissional. Mas por algum motivo do destino ele não lembra do seu nome completo, mas lembra de alguns pontos marcantes:
 
-### Arquivos anexados
+- Seu nome era Manuela Ribeiro;
+- Possui formação Academica no Senac São Paulo;
+- Mora no Rio de Janeiro;
 
+Será que você conseguirá encontrar a pessoa correta? Pontue achando a flag em uma de suas publicações.
 ### Flag
-
+```
+ALQ{@rt1g0-@lQuYm1@}
+```
 ### Solução detalhada
+Começamos com uma simples pesquisa no Google para encontrar o perfil da Manuela.
+
+<img src="images/Pasted image 20230828165207.png">
+
+<img src="images/Pasted image 20230828165310.png">
+
+Após visualizar seu perfil, observamos que ela estava anunciando o CTF da Alquymia. Vasculhando suas publicações, descobrimos um artigo sobre o mesmo CTF.
+
+<img src="images/Pasted image 20230828165444.png">
+
+Visitando a publicação, podemos encontrar a flag na última linha.
+
+<img src="images/Pasted image 20230828165530.png">
 
 ## Hidden Flag (50)
 ### Descrição
