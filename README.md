@@ -1741,12 +1741,68 @@ Trocamos o dígito ```2022``` da senha do ooclaar para ```2023``` e validamos no
 
 ## Publicidade de Limpeza (100)
 ### Descrição
-
+Parece que você foi contratado para analisar um arquivo em anexo que um dos seus funcionários recebeu, ele parece estranho e possui um possível link malicioso. Analise o arquivo e obtenha a flag.
 ### Arquivos anexados
 
+* [publicidade_de_limpeza.xlsx](files/publicidade_de_limpeza.xlsx)
 ### Flag
-
+```
+ALQ{hidden_inf0mation}
+```
 ### Solução detalhada
+Ao abrir a planilha, é possível ver uma imagem de uma publicidade sobre produtos de limpeza.
+
+<img src="images/Pasted image 20230828201248.png">
+
+Observamos que faltava o número "5" no canto esquerdo.
+
+<img src="images/Pasted image 20230828201417.png">
+
+Removemos a imagem da planilha e arrumamos o número escondido.
+
+Depois de alguns segundos, encontramos um valor base64 escondido.
+
+<img src="images/Pasted image 20230828201611.png">
+
+Posteriormente pintamos toda a planilha de preto para visualizar melhor o que estava escondido e onde.
+
+<img src="images/Pasted image 20230828201734.png">
+
+Encontramos 3 valores Base64, então copiamos um deles e analisamos com a ajuda da ferramenta CyberChef.
+
+<img src="images/Pasted image 20230828201954.png">
+
+Após decodificar, percebemos que o valor decodificado estava estranho e não sabíamos do que se tratava, então usamos a receita "Magic" de forma intensiva para detectar sobre o que se tratava.
+
+<img src="images/Pasted image 20230828202133.png">
+
+Observamos que XOR era citado diversas vezes, então começamos a procurar uma chave para decodificar a mensagem.
+
+Depois de tanto tempo procurando a chave XOR, encontramos ela, ela era a posição da mensagem codificada em Base64 na planilha:
+
+<img src="images/Pasted image 20230828202350.png">
+
+<img src="images/Pasted image 20230828202410.png">
+
+Decodificamos todas as 3 mensagens e juntamos, o resultado foi:
+
+```
+hidden_inf0mation}
+```
+
+Reparamos que faltava uma parte da flag, então usamos a ferramenta **unzip** para desmontar a planilha e procurar por mensagens Base64 com o comando ```grep -R ==```.
+
+<img src="images/Pasted image 20230828202911.png">
+
+Encontramos o último valor Base64, porém não sabíamos qual era a chave, então pesquisamos pelo valor na planilha.
+
+<img src="images/Pasted image 20230828203138.png">
+
+O valor foi encontrado junto com sua posição na planilha, que era a chave.
+
+<img src="images/Pasted image 20230828203232.png">
+
+Após decodificar, juntamos todas as partes e formamos a flag ```ALQ{hidden_inf0mation}```.
 
 # Pwn
 
