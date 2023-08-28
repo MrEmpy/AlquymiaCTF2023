@@ -240,11 +240,27 @@ Esta foi uma challenge no qual precisariamos encontrar um tipo de cifra chamada 
 ## Receita de Bolo (100)
 ### Descrição
 
-### Arquivos anexados
+Esta challenge consistia em fazer o processo reverso de uma codificação.
 
 ### Flag
 
+ALQ{m1nh@_crpt0}
+
 ### Solução detalhada
+
+Para poder obter a flag, basta fazer o processo oposto (reverso) do que foi codificado, depois de muitos testes, descobrimos que a quantia do ro13 deve ficar em 18 para poder dar certo, segue a lógica abaixo;
+
+```
+YneYPkgV2FIpujf02mZfCY -> rot13 (quantia 18) -> QfwQHcyN2XAhmbx02eRxUQ
+
+QfwQHcyN2XAhmbx02eRxUQ -> reverse -> QUxRe20xbmhAX2NycHQwfQ
+
+QUxRe20xbmhAX2NycHQwfQ -> base64 -> ALQ{m1nh@_crpt0}
+```
+<img src="images/boloenum.png">
+<img src="images/rot13.png">
+<img src="images/reverse.png">
+<img src="images/fromb64.png">
 
 # Forense
 
