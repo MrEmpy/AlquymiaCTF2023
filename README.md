@@ -1155,12 +1155,17 @@ script-src 'sha256-hii6FQk1E5f+ah0rqHNz3DAMNR2abz87DrsJsihCDjU=' 'nonce-no23h3v8
 
 ## Informações de um arquivo! (10)
 ### Descrição
-
+Será que teremos como ver meta-dados desse arquivo? Reponda com a qualidade da imagem dentro da flag: ALQ{resposta}
 ### Arquivos anexados
-
+* [viagem-de-ferias-para-o-peru-capa-1920x520.jpg](files/viagem-de-ferias-para-o-peru-capa-1920x520.jpg)
 ### Flag
-
+```
+ALQ{82}
+```
 ### Solução detalhada
+Para esse desafio, foi utilizado apenas a ferramenta **exiftool** para obter a qualidade da imagem.
+
+<img src="images/Pasted image 20230828153020.png">
 
 ## Rastreio de IP (10)
 ### Descrição
