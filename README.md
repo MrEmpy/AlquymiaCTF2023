@@ -1,3 +1,7 @@
+<h1 align="center">「🚩」 Alquymia CTF 2023: 2ª Edição</h1>
+
+<p align="center"><img src="images/logo.png"></p>
+
 ## Sumário
 
 * [Boot2Root](#boot2root)
