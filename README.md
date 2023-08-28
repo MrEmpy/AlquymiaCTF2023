@@ -344,14 +344,24 @@ A hash md5 estava com um char a mais, que seria o "k", removendo esse "k", e uti
 
 <img src="images/breakthehash.png">
 
-## Um ataque ao banco (25)
+## Uma Simples Análise (10)
 ### Descrição
+Parece que o [https://bancoalq.com.br/](https://bancoalq.com.br/) nem começou a ser desenvolvido e já temos algumas pessoas fazendo alguns requests com tentativas de login em nossa plataforma. Ainda bem que estamos sempre de olho em nossos logs de servidor para descobrir qualquer tentativa maliciosa.
 
+Pontue adicionando dentro da nossa flag ALQ{ip-do-atacante--plataforma-do-site}
 ### Arquivos anexados
 
+* [log-nginx.txt](files/log-nginx.txt)
 ### Flag
-
+```
+ALQ{162.158.189.173--wordpress}
+```
 ### Solução detalhada
+Analisando o arquivo de log, percebemos que várias requisições foram feitas para o ```xmlrpc.php```.
+
+<img src="images/Pasted image 20230828162648.png">
+
+Existe uma vulnerabilidade no Wordpress onde o atacante abusa de uma função do XMLRPC para fazer uma sobrecarga no servidor. No entanto, a flag final é ```ALQ{162.158.189.173--wordpress}```.
 
 ## Validação de Dados (25)
 ### Descrição
