@@ -1232,12 +1232,43 @@ link da publicação: https://www.clubedohardware.com.br/forums/topic/10888-vou-
 
 ## Investigação de Voo (50)
 ### Descrição
+Você foi contratado para encontrar discrepancias nos voo do sistema área brasileiro. Fazendo uma analise dos meados de maio de 2023 da aeronave PTB2322, existe uma data que possui uma rota para um destino bem incomum. Sabendo disso, responda a flag ALQ com as seguintes informações:
 
-### Arquivos anexados
+ALQ{cargo-que-aparece-no-destino--primeiro-nome-do-individuo--hora-da-chegada}
 
+OBS: A resposta estará TODA em minusculo, incluindo a hora. OBS1: Se uma parte da resposta tiver espaços, será separado por - OBS2: A separação de um dado por outro será separado por -- OBS3: A hora deve estar no formato XX:XXvv, sendo vv pm ou am.
 ### Flag
-
+```
+ALQ{deputado--luis--12:34pm}
+```
 ### Solução detalhada
+Ao pesquisar sobre a aeronave PTB2322 no site [Flightaware](https://www.flightaware.com/), encontramos vários voos realizados.
+
+<img src="images/Pasted image 20230828153914.png">
+
+<img src="images/Pasted image 20230828153922.png">
+
+<img src="images/Pasted image 20230828153940.png">
+
+Começamos a analisar o voo da data 28/05/2023.
+
+O formato da flag é:
+
+```
+ALQ{cargo-que-aparece-no-destino--primeiro-nome-do-individuo--hora-da-chegada}
+```
+
+Com base nessa informação, começamos montando a primeira parte:
+
+```
+ALQ{deputado--luis--}
+```
+
+Ao acessar sobre o voo com mais detalhes, encontramos o horário de chegada.
+
+<img src="images/Pasted image 20230828154333.png">
+
+Com essa informação, juntamos ela a outra parte da flag, formando ```ALQ{deputado--luis--12:34pm}```.
 
 ## A melhor rua para um gato! (100)
 ### Descrição
