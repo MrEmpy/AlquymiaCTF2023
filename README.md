@@ -511,12 +511,32 @@ Então a flag final era ```ALQ{main.cfg}```.
 
 ## Investigação (100)
 ### Descrição
-
+Sim, achamos a pasta, mas não achamos o conteúdo sensível que ele está escondendo... Ache a flag para pontuar nessa investigação.
 ### Arquivos anexados
 
+* [home.tar.xz](blob/main/files/home.tar.xz)
 ### Flag
-
+```
+ALQ{200.160.2.3}
+```
 ### Solução detalhada
+Ao descomprimir o arquivo ```home.tar.xz```, observamos que havia diversos diretórios e arquivos da home de um usuário.
+
+<img src="images/Pasted image 20230828143311.png">
+
+Um dos jogadores disse que não haveria nenhuma informação escondida para ser procurada com uma ferramenta de análise de disco, como Autopsy, pelo fato de que estávamos lidando com um arquivo, e não um disco.
+
+Partindo desse ponto, começamos a visualizar todos os arquivos com o comando ```ls -laR```. Encontramos uma ```id_rsa.pub``` no diretório ```.ssh```.
+
+<img src="images/Pasted image 20230828144010.png">
+
+Ao ler o arquivo, o jogador suspeito dos caracteres presentes no arquivo, como se não fosse realmente um chave RSA pública.
+
+<img src="images/Pasted image 20230828144144.png">
+
+Copiando o valor e adicionando na ferramenta CyberChef e usando a receita "From Base64", obtemos uma mensagem acompanhada com a flag.
+
+<img src="images/Pasted image 20230828144308.png">
 
 ## Vazamento de Informações (100)
 ### Descrição
