@@ -2,6 +2,8 @@
 
 <p align="center"><img src="images/logo.png"></p>
 
+O Capture the Flag (CTF) da Alquymia 2023, 2ª edição, foi um emocionante evento de segurança cibernética onde os participantes enfrentaram diversos desafios em categorias como web, criptografia, forense, lógica, mini games, OSINT, pwn e steganografia. Os jogadores do time [Templo7k](https://templo7k.ninja), [MrEmpy](https://github.com/MrEmpy), [MatheuZSec](https://github.com/MatheuZSecurity) e [Ferreiraklet](https://github.com/ferreiraklet) compartilharam suas estratégias e soluções. O CTF destacou-se pela sua diversidade e complexidade, proporcionando aos competidores a oportunidade de aprender, crescer e se divertir enquanto exploravam o mundo da segurança cibernética.
+
 ## Sumário
 
 * [Boot2Root](#boot2root)
